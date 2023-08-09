@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\Mae-Paulistana\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj": {}
+    "D:\\MaePaulistana\\P_MaePaulistana\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj": {}
   },
   "projects": {
-    "Z:\\Mae-Paulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj": {
+    "D:\\MaePaulistana\\P_MaePaulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\Mae-Paulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj",
+        "projectUniqueName": "D:\\MaePaulistana\\P_MaePaulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj",
         "projectName": "GeoModel",
-        "projectPath": "Z:\\Mae-Paulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj",
-        "packagesPath": "C:\\Users\\matheus.motta\\.nuget\\packages\\",
-        "outputPath": "Z:\\Mae-Paulistana\\GeoModel\\GeoModel\\GeoModel\\obj\\",
+        "projectPath": "D:\\MaePaulistana\\P_MaePaulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj",
+        "packagesPath": "C:\\Users\\Mathe\\.nuget\\packages\\",
+        "outputPath": "D:\\MaePaulistana\\P_MaePaulistana\\GeoModel\\GeoModel\\GeoModel\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\matheus.motta\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Mathe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -117,26 +111,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "Z:\\Mae-Paulistana\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj": {
+    "D:\\MaePaulistana\\P_MaePaulistana\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\Mae-Paulistana\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj",
+        "projectUniqueName": "D:\\MaePaulistana\\P_MaePaulistana\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj",
         "projectName": "MaePaulistana",
-        "projectPath": "Z:\\Mae-Paulistana\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj",
-        "packagesPath": "C:\\Users\\matheus.motta\\.nuget\\packages\\",
-        "outputPath": "Z:\\Mae-Paulistana\\MaePaulistana\\MaePaulistana\\obj\\",
+        "projectPath": "D:\\MaePaulistana\\P_MaePaulistana\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj",
+        "packagesPath": "C:\\Users\\Mathe\\.nuget\\packages\\",
+        "outputPath": "D:\\MaePaulistana\\P_MaePaulistana\\MaePaulistana\\MaePaulistana\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\matheus.motta\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Mathe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -144,16 +133,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "Z:\\Mae-Paulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj": {
-                "projectPath": "Z:\\Mae-Paulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj"
+              "D:\\MaePaulistana\\P_MaePaulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj": {
+                "projectPath": "D:\\MaePaulistana\\P_MaePaulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj"
               }
             }
           }
@@ -192,7 +179,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

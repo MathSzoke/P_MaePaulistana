@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaePaulistana", "MaePaulistana\MaePaulistana.csproj", "{69C11F85-8E59-4D6B-AB6E-E2D929798847}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoModel", "..\GeoModel\GeoModel\GeoModel\GeoModel.csproj", "{896279EC-5064-4787-B59E-FC2FF340503F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoModel", "..\GeoModel\GeoModel\GeoModel\GeoModel.csproj", "{8F9565F7-D012-44CD-88EA-755A82B6F7FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{69C11F85-8E59-4D6B-AB6E-E2D929798847}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69C11F85-8E59-4D6B-AB6E-E2D929798847}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69C11F85-8E59-4D6B-AB6E-E2D929798847}.Release|Any CPU.Build.0 = Release|Any CPU
-		{896279EC-5064-4787-B59E-FC2FF340503F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{896279EC-5064-4787-B59E-FC2FF340503F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{896279EC-5064-4787-B59E-FC2FF340503F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{896279EC-5064-4787-B59E-FC2FF340503F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F9565F7-D012-44CD-88EA-755A82B6F7FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F9565F7-D012-44CD-88EA-755A82B6F7FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F9565F7-D012-44CD-88EA-755A82B6F7FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F9565F7-D012-44CD-88EA-755A82B6F7FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

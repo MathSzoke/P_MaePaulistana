@@ -10117,6 +10117,11 @@
             IRepository de Models.MaePaulistana.Gestacao
             </summary>
         </member>
+        <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_Monitoramento">
+            <summary>
+            IRepository de Models.MaePaulistana.Monitoramento
+            </summary>
+        </member>
         <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_PacienteGestacaoRiscoCondicaoSaude">
             <summary>
             IRepository de Models.MaePaulistana.PacienteGestacaoRiscoCondicaoSaude
@@ -10682,6 +10687,11 @@
         <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_Gestacao">
             <summary>
             IRepository de Models.MaePaulistana.Gestacao
+            </summary>
+        </member>
+        <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_Monitoramento">
+            <summary>
+            IRepository de Models.MaePaulistana.Monitoramento
             </summary>
         </member>
         <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_PacienteGestacaoRiscoCondicaoSaude">

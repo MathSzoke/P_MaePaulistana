@@ -9,45 +9,45 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MaePaulistana
 build_property.RootNamespace = MaePaulistana
-build_property.ProjectDir = Z:\Mae-Paulistana\MaePaulistana\MaePaulistana\
+build_property.ProjectDir = D:\MaePaulistana\P_MaePaulistana\MaePaulistana\MaePaulistana\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = Z:\Mae-Paulistana\MaePaulistana\MaePaulistana
+build_property.MSBuildProjectDirectory = D:\MaePaulistana\P_MaePaulistana\MaePaulistana\MaePaulistana
 build_property._RazorSourceGeneratorDebug = 
 
-[Z:/Mae-Paulistana/MaePaulistana/MaePaulistana/Pages/Atention/Atention.cshtml]
+[D:/MaePaulistana/P_MaePaulistana/MaePaulistana/MaePaulistana/Pages/Atention/Atention.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXRlbnRpb25cQXRlbnRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[Z:/Mae-Paulistana/MaePaulistana/MaePaulistana/Pages/Index.cshtml]
+[D:/MaePaulistana/P_MaePaulistana/MaePaulistana/MaePaulistana/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[Z:/Mae-Paulistana/MaePaulistana/MaePaulistana/Pages/Monitoring/Monitoring.cshtml]
+[D:/MaePaulistana/P_MaePaulistana/MaePaulistana/MaePaulistana/Pages/Monitoring/Monitoring.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uaXRvcmluZ1xNb25pdG9yaW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[Z:/Mae-Paulistana/MaePaulistana/MaePaulistana/Pages/NewPatient/NewPatient.cshtml]
+[D:/MaePaulistana/P_MaePaulistana/MaePaulistana/MaePaulistana/Pages/NewPatient/NewPatient.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3UGF0aWVudFxOZXdQYXRpZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[Z:/Mae-Paulistana/MaePaulistana/MaePaulistana/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[D:/MaePaulistana/P_MaePaulistana/MaePaulistana/MaePaulistana/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[Z:/Mae-Paulistana/MaePaulistana/MaePaulistana/Pages/Unlocalized/Unlocalized.cshtml]
+[D:/MaePaulistana/P_MaePaulistana/MaePaulistana/MaePaulistana/Pages/Unlocalized/Unlocalized.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVW5sb2NhbGl6ZWRcVW5sb2NhbGl6ZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[Z:/Mae-Paulistana/MaePaulistana/MaePaulistana/Pages/_ViewImports.cshtml]
+[D:/MaePaulistana/P_MaePaulistana/MaePaulistana/MaePaulistana/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[Z:/Mae-Paulistana/MaePaulistana/MaePaulistana/Pages/_ViewStart.cshtml]
+[D:/MaePaulistana/P_MaePaulistana/MaePaulistana/MaePaulistana/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[Z:/Mae-Paulistana/MaePaulistana/MaePaulistana/Pages/Shared/_Layout.cshtml]
+[D:/MaePaulistana/P_MaePaulistana/MaePaulistana/MaePaulistana/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ivfveia8bf
