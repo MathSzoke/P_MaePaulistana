@@ -1,0 +1,95 @@
+
+body {
+    width: 70%;
+    margin: auto;
+}
+
+table {
+    caption-side: unset !important;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+caption > h3 {
+    padding: 15px;
+    margin: 0;
+}
+
+.header-tables {
+    background-color: rgb(0 153 204) !important;
+    color: white !important;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+div.nav-container {
+    border-bottom: 1px solid orange;
+    margin: 0;
+}
+
+.no-spinners::-webkit-inner-spin-button,
+.no-spinners::-webkit-outer-spin-button
+{
+    -webkit-appearance: none !important;
+    margin: 0 !important; /* É importante definir margem para alguns navegadores */
+}
+
+.no-spinners
+{
+    -moz-appearance: textfield !important; /* É importante definir essa propriedade para o Firefox */
+}
+
+.titles
+{
+    color: orange !important;
+}
+
+.margin-t-b {
+    margin: 1em 0 !important;
+}
+
+.ipt-name,
+.ipt-cns,
+.ipt-birth-date,
+.ipt-dum,
+.ipt-cpf,
+.ipt-prevision-forecast {
+    width: 250px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    height: 2em;
+    border-radius: 5px;
+}
+
+span.span-inputs {
+    padding: 0 1em 0 0;
+}
+
+.unselectable {
+    user-select: none !important;
+    -moz-user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+.modal-dialog {
+    max-width: calc(70vw - 2rem) !important;
+}
+
+input[type="tel"].ipt-telephone:focus, textarea.ipt-obs, select.select-type-telephone {
+    outline: none !important;
+    border: none !important;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="tel"]:focus, textarea, select {
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.required {
+    color: red !important;
+    margin: 5px !important;
+}

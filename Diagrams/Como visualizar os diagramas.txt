@@ -1,0 +1,11 @@
+Processo para instalar e rodar o .puml no VSCode:
+
+1 - Abra o VSCode
+2 - Aperte CTRL + E
+3 - Digite: "ext install PlantUML"
+4 - Instale as extensões: PlantUML; PlantUML Preview
+5 - Abra o diagrama desejado
+6 - Clique em alguma parte do texto (só 1 vez para selecionar esse arquivo)
+7 - Aperte Alt + D
+
+Diagrama visualizado.

@@ -1,0 +1,17 @@
+' ALT + D para visualizar o diagrama.
+' Casos de uso das enfermeiras.
+@startuml
+actor Enfermeira
+actor Telecomunicador
+
+Enfermeira --> (Login)
+Telecomunicador --> (Login)
+Enfermeira --> (Visualiza Dashboard)
+Telecomunicador --> (Visualiza Dashboard)
+Enfermeira --> (Pesquisa gestantes/puérperas)
+Telecomunicador --> (Pesquisa gestantes/puérperas)
+Enfermeira --> (Monitora pacientes)
+Telecomunicador --> (Monitora pacientes)
+Enfermeira --> (Cadastra novas gestantes)
+Telecomunicador --> (Registra ligações)
+@enduml

@@ -1,0 +1,24 @@
+' Diagrama de sequencia - tela de registrar ligações
+' ALT + D para visualizar o diagrama.
+@startuml
+actor Enfermeira
+participant Ligacao
+participant Paciente
+
+Enfermeira -> Ligacao: Realiza contato com a -paciente
+activate Ligacao
+Ligacao -> Ligacao: Verificar status_call
+alt status_call é "Sucesso"?
+    Ligacao -> Paciente: Iniciar acompanhamento e preencher formulário
+    activate Paciente
+    Ligacao <-- Paciente: Confirmação
+    deactivate Paciente
+else status_call é "Não"?
+    Ligacao --> Enfermeira: Motivo do contato não ser efetivo
+else status_call é "Pediu para reagendar"?
+    Ligacao --> Enfermeira: Preencher uma breve descrição e a data e hora para reagendar.
+    deactivate Ligacao
+end
+
+deactivate Ligacao
+@enduml

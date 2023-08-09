@@ -1,0 +1,137 @@
+﻿.table-new-register {
+    width: 100%;
+    border-collapse: collapse;
+    text-align-last: left;
+}
+
+.label-column {
+    text-align: left;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.input-column {
+    padding-left: 10px;
+}
+
+.select-units,
+.select-attendant-types {
+    width: 250px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.checkbox-label {
+    margin-left: 10px;
+}
+
+div.body-new-register {
+    display: flex;
+}
+
+div.container-one-new-register, div.container-two-new-register {
+    padding: 2em;
+    width: 100%;
+}
+
+div.container-two-new-register {
+    border-left: 1px solid lightgrey;
+}
+
+.content-ipt {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.qualification-citizen {
+    justify-content: unset;
+    align-items: center;
+}
+
+div.register-telephone {
+    border-top: 1px solid orange;
+}
+
+div.modal-footer, div.register-telephone {
+    margin: 1em;
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.15);
+    display: block;
+}
+
+div.modal-header {
+    border-bottom: 1px solid orange;
+}
+
+div.header-telephone {
+    border: none;
+    margin: 1em 0 0 0 !important;
+}
+
+div.modal-header, div.modal-body {
+    margin: 1em;
+}
+
+button.close {
+    font-size: 30px;
+}
+
+table.new-telephones {
+    width: 90%;
+}
+
+div.div-table-telephone {
+    display: flex;
+    justify-content: center;
+    padding: 1em 0 3em 0;
+}
+
+.customize-table-ipt {
+    border: none;
+    width: 100%;
+    padding: 10px;
+    min-height: 80px !important;
+    background: none !important;
+}
+
+.td-customize-table {
+    margin: 0;
+    padding: 0;
+}
+
+div.contents-details-person {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+div.eye-data, div.register-call-data {
+    margin: 10px;
+}
+
+div.container-ipt-radio {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+div.area-ipt-radio {
+    padding-left: 1em;
+    display: flex;
+    align-items: center;
+}
+
+#add-phone-button:hover
+{
+    color: black !important;
+}
+
+button.btn-remove-telephone,
+button.btn-remove-telephone:hover,
+button.btn-remove-telephone:active
+{
+    color: red !important;
+    border: none !important;
+}

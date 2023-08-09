@@ -1,0 +1,10 @@
+' ALT + D para visualizar o diagrama.
+' Casos de uso de usuário geral (adm).
+@startuml
+actor Administrador
+
+Administrador --> (Login)
+Administrador --> (Visualiza Dashboard)
+Administrador --> (Cadastra novas Enfermeiras/Telecomunicadores)
+Administrador --> (Controla hierárquia dos usuários)
+@enduml

@@ -1,0 +1,36 @@
+﻿div.details-patient {
+    display: flex;
+    justify-content: space-around;
+}
+
+div.filter-patient {
+    display: flex;
+    padding: 2em 0 0;
+    justify-content: space-between;
+}
+
+div.fields-filter {
+    padding-right: 4em;
+}
+
+div.area-buttons-monitoring {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1em 0 2em 0;
+}
+
+div.area-btn {
+    padding-left: 2em;
+}
+
+.empty-square {
+    padding: 2em 3em;
+}
+
+div.area-eye {
+    color: rgb(0 153 204) !important;
+}
+
+div.area-telephone {
+    color: orange !important;
+}

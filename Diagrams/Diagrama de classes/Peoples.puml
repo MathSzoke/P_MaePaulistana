@@ -1,0 +1,145 @@
+' Diagrama de classes.
+' ALT + D para visualizar o diagrama.
+@startuml
+
+class Usuarios{
+    + Administrador
+    + Enfermeira
+    + Telecomunicador
+}
+
+class Administrador{
+    * Nome
+    * Email
+    * Senha
+    * CPF / CNH
+    RegistraNovosUsuarios()
+    ControlaHierarquiaUsuarios()
+    RegistraNovasPacientes()
+    RegistraLigacoes()
+}
+
+class Enfermeira{
+    * Nome
+    * Email
+    * Senha
+    * CPF / CNH
+    RegistraNovasPacientes()
+    RegistraLigacoes()
+}
+
+class Telecomunicador{
+    * Nome
+    * Email
+    * Senha
+    * CPF / CNH
+    RegistraNovasPacientes()
+    RegistraLigacoes()
+}
+
+class Pacientes{
+    + Gestante
+    + Puerpera
+    + RecemNascido
+}
+
+class Gestante{
+    * Nome
+    * Dia do nascimento
+    * CNS
+    * DUM
+    * Região
+        ' Centro; Norte; Sul
+        '     UBS's; AMA's
+        ' Leste; Oeste; Sudeste
+        '     UBS's; AMA's
+    * Previsão de parto
+    * Telefones
+    * Fonte de dados
+        ' Chat Boots
+        ' Aplicativo
+        ' SIGA
+        ' E-Saúde
+    * Raça / Cor
+    * Faixa Etária
+    * Escolaridade
+    * Gestações Anteriores
+    * Peso Atual
+    * Idade Gestacional
+    * Risco Gestacional
+    * PA Máxima
+    * PA Mínima
+    * Medicamentos
+    * Alerta
+    * Selecionar queixas
+    * Dificuldade principal
+    * Solicitações
+    * Eventos / Intercorrências / Desfechos
+    * Caso crítico
+        ' SIM:
+        '     Motivo do caso crítico
+        ' Não
+        ' Plano de monitoramento
+        ' Pré-Natal do homem
+        '     SIM
+        '     NÃO:
+        '         Motivos de NÃO PN do homem
+        '     Retorno da ligação
+}
+
+class Puerpera{
+    * Nome
+    * Dia do nascimento
+    * CNS
+    * Região
+        ' * Centro; Norte; Sul;
+        ' 	* UBS's; AMA's
+        ' * Leste; Oeste; Sudeste
+        ' 	* UBS's; AMA's
+    * Gestante morreu no parto
+        SIM:
+            .... Quem informou
+        NÃO:
+            .... Tipo de parto
+            .... Data do parto
+            .... Local do parto
+            .... Idade gestacional no parto
+            .... Violência Obestétrica
+                ...... SIM:
+                    ........ Judicialização
+                ...... NÃo:
+                    ........ Natimorto
+                        ............ SIM
+                        ............ NÃO:
+                            ................ RN com risco
+                                .................... SIM:
+                                    .......................... Quais riscos
+                                .................... NÃO
+                            ................ Peso ao nascer
+            .... Evolução do Puerpério
+}
+
+class RecemNascido{
+    * Nome
+    * Dia do nascimento
+    * CNS
+    * Região
+        ' * Centro; Norte; Sul;
+        ' 	* UBS's; AMA's
+        ' * Leste; Oeste; Sudeste
+        ' 	* UBS's; AMA's
+}
+
+Usuarios -- Administrador
+Usuarios -- Enfermeira
+Usuarios -- Telecomunicador
+
+Administrador -- Pacientes
+Enfermeira -- Pacientes
+Telecomunicador -- Pacientes
+
+Pacientes -- Gestante
+Pacientes -- Puerpera
+Pacientes -- RecemNascido
+
+@enduml

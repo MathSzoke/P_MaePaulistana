@@ -1,0 +1,16 @@
+' Diagrama de atividades - Acesso á plataforma.
+' ALT + D para visualizar o diagrama.
+@startuml
+start
+:Inicia o sistema;
+if (Login for sucesso) then (yes)
+  :Entra na plataforma e mostra os conteúdos;
+elseif (Errar a senha 3 vezes) then (yes)
+  :Bloqueia por IP da máquina por 15 minutos as tentativas;
+elseif (Clicar em esqueci a senha) then (yes)
+  :Solicitar email ou algum outro dado para ser 
+  possivel buscar pelo usuário e enviar uma redefinição de senha;
+endif
+:Finaliza o sistema;
+stop
+@enduml

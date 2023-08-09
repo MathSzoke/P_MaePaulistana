@@ -1,0 +1,10 @@
+' Diagrama de sequencia - tela inicial
+' ALT + D para visualizar o diagrama.
+@startuml
+actor Usuario
+
+Usuario -> WebApplication: Acessa com as credenciais
+WebApplication -> Database: Checa as credenciais
+Database --> WebApplication: Valida credenciais
+WebApplication -> Usuario: Mostra tela inicial
+@enduml

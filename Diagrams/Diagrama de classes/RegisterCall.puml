@@ -1,0 +1,79 @@
+' Diagrama de classes.
+' ALT + D para visualizar o diagrama.
+@startuml
+
+class Usuarios{
+    + Administrador
+    + Enfermeira
+    + Telecomunicador
+    RegistraLigacao()
+}
+
+class RegisterCall{
+    * Telefones
+    * Contato_Efetivo
+    * Historico_Ligacoes
+    ContatoEfetivadoSim()
+    ContatoEfetivadoNao()
+    ContatoEfetivadoPediuReagendamento()
+}
+
+class ContatoEfetivadoSim{
+    * FonteDados
+    * Qualificacao_Munícipe
+    * Local_Acompanhamento
+    * Supervisao_Tecnica
+    * Coordenadoria
+    * DUM_Corrigida
+    * PA_Max
+    * PA_Min
+    * Peso
+    * Glicemia
+    * SaturacaoO2
+    * Medicamentos
+    * Caso_Critico
+    * Motivos
+    * Alerta
+    * Plano_De_Monitoramento
+    * RiscosBI
+    RecuperaDadosGestante()
+    InclueNovasSugestoesRiscos()
+    RegistraNovosRiscosDoBI()
+    RegistraNovaEvolucaoGestante()
+    RecuperaHistoricoEvolucoesGestante()
+    PaiDaCrianca()
+
+    FinalizaEntrevista()
+}
+
+class ContatoEfetivadoNao{
+    * Reagendamento_Automatico_Em_6h
+    RegistraMotivo()
+}
+
+class ContatoEfetivadoPediuReagendamento{
+    * Breve_Descricao
+    * Data_De_Reagendamento
+    RealizaReagendamento()
+}
+
+class FinalizaEntrevista{
+    * Observacoes_Importantes
+    * Plano_De_Acao
+    - Normal 'Ligação a cada mês'
+    - Urgente 'Ligação toda semana'
+    - Critico 'Informar data de retorno'
+    * Data_Retorno
+    * Motivo_Alteracao_Plano_De_Acao
+    FinalizarEntrevista()
+}
+
+Usuarios -- RegisterCall
+
+RegisterCall --> ContatoEfetivadoPediuReagendamento
+RegisterCall --> ContatoEfetivadoNao
+RegisterCall --> ContatoEfetivadoSim
+
+ContatoEfetivadoSim --> FinalizaEntrevista
+
+@enduml
