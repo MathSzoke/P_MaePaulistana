@@ -301,45 +301,6 @@
             <param name="delete">indica que a exclusão é física</param>
             <returns>objeto obj</returns>
         </member>
-        <member name="T:GeoModel.Controllers.MonitoramentoController">
-            <summary>
-            Controller de monitoramento
-            </summary>
-        </member>
-        <member name="F:GeoModel.Controllers.MonitoramentoController._mapper">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:GeoModel.Controllers.MonitoramentoController.geoSaudeDBContext">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:GeoModel.Controllers.MonitoramentoController.#ctor(AutoMapper.IMapper)">
-            <summary>
-            
-            </summary>
-            <param name="mapper"></param>
-        </member>
-        <member name="M:GeoModel.Controllers.MonitoramentoController.Monitoring">
-            <summary>
-            Retorna lista de pacientes em monitoramento por nome ou data de nascimento ou cns
-            </summary>
-            <returns>Json de dados sobre monitoramento das pacientes</returns>
-        </member>
-        <member name="M:GeoModel.Controllers.MonitoramentoController.MonitoringSearch(GeoModel.Models.Common.Paciente,System.Nullable{System.DateTime},System.String)">
-            <summary>
-            Retorna lista de pacientes em monitoramento por nome ou data de nascimento ou cns
-            </summary>
-            <returns>Json de dados sobre monitoramento das pacientes</returns>
-        </member>
-        <member name="M:GeoModel.Controllers.MonitoramentoController.Unlocalized">
-            <summary>
-            Retorna uma lista de pacientes que não foram localizadas, ou, que não obteve o contato efetivado.
-            </summary>
-            <returns>Json de dados sobre pacientes não localizadas.</returns>
-        </member>
         <member name="T:GeoModel.Controllers.UploadController">
             <summary>
             
@@ -367,6 +328,54 @@
             <param name="id"></param>
             <param name="table"></param>
             <returns></returns>
+        </member>
+        <member name="T:GeoModel.Migrations.Init">
+            <inheritdoc />
+        </member>
+        <member name="M:GeoModel.Migrations.Init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GeoModel.Migrations.Init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GeoModel.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GeoModel.Migrations.AddingTablesNullable">
+            <inheritdoc />
+        </member>
+        <member name="M:GeoModel.Migrations.AddingTablesNullable.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GeoModel.Migrations.AddingTablesNullable.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GeoModel.Migrations.AddingTablesNullable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GeoModel.Migrations.UpdatingDatasMonitoramento">
+            <inheritdoc />
+        </member>
+        <member name="M:GeoModel.Migrations.UpdatingDatasMonitoramento.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GeoModel.Migrations.UpdatingDatasMonitoramento.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GeoModel.Migrations.UpdatingDatasMonitoramento.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GeoModel.Migrations.UpdatingMonitoramento">
+            <inheritdoc />
+        </member>
+        <member name="M:GeoModel.Migrations.UpdatingMonitoramento.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GeoModel.Migrations.UpdatingMonitoramento.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GeoModel.Migrations.UpdatingMonitoramento.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
         </member>
         <member name="T:GeoModel.Models.AuthDBContext">
             <summary>
@@ -1160,16 +1169,6 @@
             id | pk, identity
             </summary>
         </member>
-        <member name="P:GeoModel.Models.Common.Estabelecimento.ParametroIdTipoEstabelecimento">
-            <summary>
-            id do tipo do estabelecimento | required
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Estabelecimento.ParametroTipoEstabelecimento">
-            <summary>
-            tipo do estabelecimento | nav prop
-            </summary>
-        </member>
         <member name="P:GeoModel.Models.Common.Estabelecimento.EstabelecimentoNome">
             <summary>
             nome do estabelecimento | required
@@ -1243,56 +1242,6 @@
         <member name="P:GeoModel.Models.Common.Estabelecimento.Cidade">
             <summary>
             cidade do estabelecimento | nav prop
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Estabelecimento.SupervisaoTecnicaId">
-            <summary>
-            id do distrito ao qual o estabelecimento está subordinado | required
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Estabelecimento.SupervisaoTecnica">
-            <summary>
-            distrito ao qual o estabelecimento está subordinado | nav prop
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Estabelecimento.ParametroIdNaturezaEstabelecimento">
-            <summary>
-            id da natureza do estabelecimento | required
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Estabelecimento.ParametroNaturezaEstabelecimento">
-            <summary>
-            natureza do estabelecimento | nav prop
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Estabelecimento.ParametroIdOrigemRegistro">
-            <summary>
-            origem do dado cadastrado
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Estabelecimento.ParametroOrigemRegistro">
-            <summary>
-            origem do dado cadastrado
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Estabelecimento.EstabelecimentoPolo">
-            <summary>
-            Estabelecimento polo (aquele que aplica palivizumabe)
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Estabelecimento.ProfissionalEstabelecimentoSet">
-            <summary>
-            profissionais do estabelecimento
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Estabelecimento.EstabelecimentoDicom">
-            <summary>
-            url dicom do estabelecimento
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Estabelecimento.EstabelecimentoSet">
-            <summary>
-            coleção de Leitos.Estabelecimento do Estabelecimento
             </summary>
         </member>
         <member name="T:GeoModel.Models.Common.EstabelecimentoDicom">
@@ -1560,6 +1509,11 @@
             
             </summary>
         </member>
+        <member name="P:GeoModel.Models.Common.ImportaExameErro.ProfissionalID">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:GeoModel.Models.Common.ImportaExameErro.ProfissionalMedicoSolicitante">
             <summary>
             
@@ -1675,15 +1629,24 @@
             Unidade de acompanhamento
             </summary>
         </member>
+        <member name="P:GeoModel.Models.Common.Paciente.TipoAtendimentoID">
+            <summary>
+            ID tipo de atendimento
+            </summary>
+        </member>
         <member name="P:GeoModel.Models.Common.Paciente.TipoAtendimento">
             <summary>
             Tipo de atendimento
             </summary>
         </member>
+        <member name="P:GeoModel.Models.Common.Paciente.QualificacaoMunicipeID">
+            <summary>
+            ID da qualificação munícipe
+            </summary>
+        </member>
         <member name="P:GeoModel.Models.Common.Paciente.QualificacaoMunicipe">
             <summary>
-            Qualificação da munícipe, com as opções:
-            Gestante; Puérpera; RN
+            Qualificação da munícipe
             </summary>
         </member>
         <member name="P:GeoModel.Models.Common.Paciente.PacienteCNS">
@@ -1696,9 +1659,9 @@
             Data da ultima menstruação
             </summary>
         </member>
-        <member name="P:GeoModel.Models.Common.Paciente.PacienteTelefone">
+        <member name="P:GeoModel.Models.Common.Paciente.PrevisaoParto">
             <summary>
-            telefones do paciente
+            Data de previsão do parto
             </summary>
         </member>
         <member name="P:GeoModel.Models.Common.Paciente.PacienteAtencao">
@@ -1706,12 +1669,12 @@
             Objeto que define com valores booleanos se a paciente possui atenção por estar em estado crítico!
             </summary>
         </member>
-        <member name="P:GeoModel.Models.Common.Paciente.ParametroSituacaoEscolarID">
+        <member name="P:GeoModel.Models.Common.Paciente.EscolaridadeID">
             <summary>
             id da situação escolar do paciente
             </summary>
         </member>
-        <member name="P:GeoModel.Models.Common.Paciente.ParametroSituacaoEscolar">
+        <member name="P:GeoModel.Models.Common.Paciente.PacienteEscolaridade">
             <summary>
             situação escolar do paciente
             </summary>
@@ -1756,24 +1719,14 @@
             sexo do paciente
             </summary>
         </member>
-        <member name="P:GeoModel.Models.Common.Paciente.ParametroEtniaID">
+        <member name="P:GeoModel.Models.Common.Paciente.TipoEtniaID">
             <summary>
             id da etnia do paciente
             </summary>
         </member>
-        <member name="P:GeoModel.Models.Common.Paciente.ParametroEtnia">
+        <member name="P:GeoModel.Models.Common.Paciente.TipoEtnia">
             <summary>
             etnia do paciente
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Paciente.ParametroCriadorID">
-            <summary>
-            id do criador da paciente
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.Paciente.CriadoPor">
-            <summary>
-            Dados do criador da paciente na plataforma
             </summary>
         </member>
         <member name="M:GeoModel.Models.Common.Paciente.#ctor">
@@ -1927,6 +1880,21 @@
             Paciente 
             </summary>
         </member>
+        <member name="T:GeoModel.Models.Common.PacienteEscolaridade">
+            <summary>
+            Escolaridade da paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.PacienteEscolaridade.EscolaridadeID">
+            <summary>
+            ID da escolaridade, na qual consiste em 2 caracteres para distingui-los e também, ser facilmente identificável.
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.PacienteEscolaridade.DescEscolaridade">
+            <summary>
+            Descrição do tipo da escolaridade
+            </summary>
+        </member>
         <member name="T:GeoModel.Models.Common.PacienteMalformacaoCongenita">
             <summary>
             relacionamento paciente malformacao congenita
@@ -1957,42 +1925,12 @@
             telefones do Paciente
             </summary>
         </member>
-        <member name="P:GeoModel.Models.Common.PacienteTelefone.PacienteTelefoneId">
+        <member name="P:GeoModel.Models.Common.PacienteTelefone.TelefoneID">
             <summary>
             id | pk, identity
             </summary>
         </member>
-        <member name="P:GeoModel.Models.Common.PacienteTelefone.PacienteTelefoneDDD">
-            <summary>
-            ddd do telefone | required
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.PacienteTelefone.PacienteTelefoneNumero">
-            <summary>
-            número do telefone | required
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.PacienteTelefone.PacienteTelefoneRamal">
-            <summary>
-            número do telefone 
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.PacienteTelefone.PacienteContato">
-            <summary>
-            nome do contato, quando for telefone de recado
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.PacienteTelefone.ParametroIdTipoTelefone">
-            <summary>
-            id do tipo do telefone | required
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.PacienteTelefone.ParametroTipoTelefone">
-            <summary>
-            tipo do telefone
-            </summary>
-        </member>
-        <member name="P:GeoModel.Models.Common.PacienteTelefone.PacienteId">
+        <member name="P:GeoModel.Models.Common.PacienteTelefone.PacienteID">
             <summary>
             id da Paciente
             </summary>
@@ -2000,6 +1938,26 @@
         <member name="P:GeoModel.Models.Common.PacienteTelefone.Paciente">
             <summary>
             Paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.PacienteTelefone.NumeroTelefone">
+            <summary>
+            número do telefone | required
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.PacienteTelefone.TipoTelefoneID">
+            <summary>
+            ID do tipo de telefone
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.PacienteTelefone.TT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.PacienteTelefone.ObsTelefone">
+            <summary>
+            Observações registradas sobre o telefone
             </summary>
         </member>
         <member name="T:GeoModel.Models.Common.PacienteTipoDeficiencia">
@@ -2157,12 +2115,12 @@
             profissional
             </summary>
         </member>
-        <member name="P:GeoModel.Models.Common.Profissional.ProfissionalId">
+        <member name="P:GeoModel.Models.Common.Profissional.ProfissionalID">
             <summary>
             id | pk, identity
             </summary>
         </member>
-        <member name="P:GeoModel.Models.Common.Profissional.Id">
+        <member name="P:GeoModel.Models.Common.Profissional.UsuarioID">
             <summary>
             id do usuário associado ao profissional
             </summary>
@@ -2505,6 +2463,101 @@
         <member name="P:GeoModel.Models.Common.SupervisaoTecnica.ParametroOrigemRegistro">
             <summary>
             origem do dado cadastrado
+            </summary>
+        </member>
+        <member name="T:GeoModel.Models.Common.TipoEtnia">
+            <summary>
+            Tipo etnia
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.TipoEtnia.EtniaID">
+            <summary>
+            ID do tipo etnia
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.TipoEtnia.DescEtnia">
+            <summary>
+            Descrição do tipo etnia
+            </summary>
+        </member>
+        <member name="T:GeoModel.Models.Common.TipoFaixaEtaria">
+            <summary>
+            Tipo faixa etária
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.TipoFaixaEtaria.FaixaEtariaID">
+            <summary>
+            ID da faixa etária
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.TipoFaixaEtaria.DescFaixaEtaria">
+            <summary>
+            Descrição da faixa etária
+            </summary>
+        </member>
+        <member name="T:GeoModel.Models.Common.TipoFonteDados">
+            <summary>
+            Tabela que representa as fontes dos dados recolhidos da paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.TipoFonteDados.FonteDadosID">
+            <summary>
+            ID de fonte de dados representado por 2 caracteres, onde na teoria deverão ser as 2 primeiras letras da palavra
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.TipoFonteDados.FonteDadosNome">
+            <summary>
+            Nome dos tipos de fontes de dados
+            </summary>
+        </member>
+        <member name="T:GeoModel.Models.Common.TipoRisco">
+            <summary>
+            Tabela dos tipos de riscos
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.TipoRisco.TipoRiscoID">
+            <summary>
+            ID do tipo de risco
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.TipoRisco.TipoRiscoNome">
+            <summary>
+            Nome do risco
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.TipoRisco.DuasPrimeirasLetras">
+            <summary>
+            Gerador automático de ID em string capturando as 2 primeiras letras do nome do risco para identificação do risco
+            </summary>
+        </member>
+        <member name="M:GeoModel.Models.Common.TipoRisco.#ctor">
+            <summary>
+            Construtor TipoRisco para sempre aplicar o valor da propriedade DuasPrimeirasLetras para o TipoRiscoID
+            </summary>
+        </member>
+        <member name="T:GeoModel.Models.Common.TipoTelefone">
+            <summary>
+            Tipos de telefones registrados no sistema
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.TipoTelefone.TipoTelefoneID">
+            <summary>
+            ID do tipo do telefone
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.TipoTelefone.DescricaoTipoTelefone">
+            <summary>
+            Descrição do tipo do telefone (recado, celular, residencial, etc...)
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.Common.TipoTelefone.DuasPrimeirasLetras">
+            <summary>
+            Gerador automático de ID em string capturando as 2 primeiras letras do nome do tipo de telefone para identificação do telefone
+            </summary>
+        </member>
+        <member name="M:GeoModel.Models.Common.TipoTelefone.#ctor">
+            <summary>
+            Construtor do TipoTelefone
             </summary>
         </member>
         <member name="T:GeoModel.Models.Common.UF">
@@ -4908,6 +4961,11 @@
             
             </summary>
         </member>
+        <member name="M:GeoModel.Models.GeoSaudeDBContext.#ctor">
+            <summary>
+            Comentar esse construtor vázio se for utilizar o DBContext com parametro.
+            </summary>
+        </member>
         <member name="M:GeoModel.Models.GeoSaudeDBContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{GeoModel.Models.GeoSaudeDBContext})">
             <summary>
             
@@ -4989,6 +5047,31 @@
             coleção de Estabelecimento
             </summary>
         </member>
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.Common_TipoTelefoneSet">
+            <summary>
+            coleção de Tipo de Telefone
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.Common_TipoFaixaEtariaSet">
+            <summary>
+            coleção de Tipo Faixa Etaria
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.Common_TipoEtniaSet">
+            <summary>
+            coleção de Tipo Etnia
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.Common_TipoRiscoSet">
+            <summary>
+            coleção de Tipo de riscos
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.Common_TipoFonteDadosSet">
+            <summary>
+            coleção de Tipo de riscos
+            </summary>
+        </member>
         <member name="P:GeoModel.Models.GeoSaudeDBContext.Common_EstabelecimentoDicomSet">
             <summary>
             coleção de EstabelecimentoDicom
@@ -5037,6 +5120,11 @@
         <member name="P:GeoModel.Models.GeoSaudeDBContext.Common_PacienteTelefoneSet">
             <summary>
             coleção de PacienteTelefone
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.Common_PacienteEscolaridadeSet">
+            <summary>
+            coleção de PacienteEscolaridade
             </summary>
         </member>
         <member name="P:GeoModel.Models.GeoSaudeDBContext.Common_PacienteTipoDeficienciaSet">
@@ -5174,6 +5262,16 @@
             coleção de Acolhimento
             </summary>
         </member>
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.MaePaulistana_TipoAtendimentoSet">
+            <summary>
+            coleção de tipo de atendimento
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.MaePaulistana_QualificacaoMunicipeSet">
+            <summary>
+            coleção do tipo de qualificação de munícipe
+            </summary>
+        </member>
         <member name="P:GeoModel.Models.GeoSaudeDBContext.MaePaulistana_AtendimentoSet">
             <summary>
             coleção de Atendimento
@@ -5204,19 +5302,34 @@
             coleção de ExameGestante
             </summary>
         </member>
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.MaePaulistana_TiposContatoNaoEfetivadoSet">
+            <summary>
+            coleção de Tipos de contato não efetivado
+            </summary>
+        </member>
         <member name="P:GeoModel.Models.GeoSaudeDBContext.MaePaulistana_GestacaoSet">
             <summary>
             coleção de Gestacao
             </summary>
         </member>
-        <member name="P:GeoModel.Models.GeoSaudeDBContext.MaePaulsistana_MonitoramentoSet">
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.MaePaulistana_MonitoramentoSet">
             <summary>
             coleção de Monitoramento
             </summary>
         </member>
-        <member name="P:GeoModel.Models.GeoSaudeDBContext.MaePaulistana_PacienteGestacaoRiscoCondicaoSaudeSet">
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.MaePaulistana_ContatoLigacaoSet">
             <summary>
-            coleção de PacienteGestacaoRiscoCondicaoSaude
+            coleção de Contato de ligação
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.MaePaulistana_PacienteRiscosSet">
+            <summary>
+            coleção de PacienteRiscos
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.GeoSaudeDBContext.MaePaulistana_MonitoramentoDaGestanteSet">
+            <summary>
+            coleção de MonitoramentoDaGestacao
             </summary>
         </member>
         <member name="P:GeoModel.Models.GeoSaudeDBContext.MaePaulistana_PartoSet">
@@ -5416,12 +5529,11 @@
             coleção de atendimentomedicosinaissintomas
             </summary>
         </member>
-        <member name="M:GeoModel.Models.GeoSaudeDBContext.#ctor">
+        <member name="M:GeoModel.Models.GeoSaudeDBContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
             <summary>
-            construtor da classe
+            configuração do database
             </summary>
-            <param name="options"></param>
-            <param name="httpContextAccessor"></param>
+            <param name="optionsBuilder"></param>
         </member>
         <member name="M:GeoModel.Models.GeoSaudeDBContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
@@ -7029,6 +7141,89 @@
             
             </summary>
         </member>
+        <member name="T:GeoModel.Models.MaePaulistana.ContatoPaciente">
+            <summary>
+            Model registro de ligações
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.ContatoLigacaoID">
+            <summary>
+            ID do registro da ligação
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.MonitoramentoID">
+            <summary>
+            ID do monitoramento
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.Monitoramento">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.PacienteID">
+            <summary>
+            ID do paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.Paciente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.DataContatoLigacao">
+            <summary>
+            Data do contato com a paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.ContatoNome">
+            <summary>
+            Nome do contato ao ligar para a paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.ContatoEfetivado">
+            <summary>
+            Flag para definir se a paciente entrou em contato, sendo os valores:
+            0 - Não
+            1 - Sim
+            2 - Pediu reagendamento
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.TipoContNaoEfetivadoID">
+            <summary>
+            Motivo declarado pelo usuário para qual o mesmo não teve sucesso ao efetivar o contato
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.TiposContato">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.ObsLigacao">
+            <summary>
+            Observações do resultado da ligação, se foi concluido ou não.
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.TelefoneUtilizado">
+            <summary>
+            Telefone utilizado para o histórico de ligações
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.TelefoneResidencial">
+            <summary>
+            Telefone residencial utilizado pela paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.TelefoneCelular">
+            <summary>
+            Telefone celular utilizado pela paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.ContatoPaciente.TelefoneRecado">
+            <summary>
+            Telefone de recado utilizado pela paciente
+            </summary>
+        </member>
         <member name="T:GeoModel.Models.MaePaulistana.EntrevistaPuerperalGestante">
             <summary>
             
@@ -7172,6 +7367,76 @@
         <member name="P:GeoModel.Models.MaePaulistana.EntrevistaPuerperalRNParametroDoencaCongenita.ParametroDoencaCongenita">
             <summary>
             risco
+            </summary>
+        </member>
+        <member name="T:GeoModel.Models.MaePaulistana.EvolucaoPaciente">
+            <summary>
+            Model de histórico evolução da paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.EvolucaoPacienteID">
+            <summary>
+            ID primário da tabela EvoluçãoPaciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.PacienteID">
+            <summary>
+            ID da paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.Paciente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.DataEvolucao">
+            <summary>
+            Data de inclusão da evolução da paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.IGEntrevista">
+            <summary>
+            não sei o que é isso ainda
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.PAMax">
+            <summary>
+            Pressão arterial máximo
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.PAMin">
+            <summary>
+            Pressão arterial minímo
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.PesoPaciente">
+            <summary>
+            Peso da paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.AlturaPaciente">
+            <summary>
+            Altura da paciente em centímetros
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.IMCPaciente">
+            <summary>
+            IMC (Índice de massa corporal) da paciente 
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.GlicemiaPaciente">
+            <summary>
+            Glicemia da paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.SaturacaoPaciente">
+            <summary>
+            Saturação da paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.EvolucaoPaciente.Medicamentos">
+            <summary>
+            Medicamentos utilizados pela paciente
             </summary>
         </member>
         <member name="T:GeoModel.Models.MaePaulistana.ExameGestante">
@@ -7807,9 +8072,14 @@
             ultima ligacao
             </summary>
         </member>
-        <member name="P:GeoModel.Models.MaePaulistana.Monitoramento.NomeEnfermeira">
+        <member name="P:GeoModel.Models.MaePaulistana.Monitoramento.TelefoneUtilizado">
             <summary>
-            nome da enfermeira | required
+            Telefone utilizado
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.Monitoramento.PrecisaAtencao">
+            <summary>
+            precisa atenção | bool
             </summary>
         </member>
         <member name="P:GeoModel.Models.MaePaulistana.Monitoramento.DataNascimento">
@@ -7817,34 +8087,205 @@
             data de nascimento da paciente
             </summary>
         </member>
-        <member name="M:GeoModel.Models.MaePaulistana.Monitoramento.#ctor">
+        <member name="P:GeoModel.Models.MaePaulistana.Monitoramento.SupervisaoTecnicaId">
             <summary>
-            construtor
+            supervisão técnica | int
             </summary>
         </member>
-        <member name="T:GeoModel.Models.MaePaulistana.PacienteGestacaoRiscoCondicaoSaude">
+        <member name="P:GeoModel.Models.MaePaulistana.Monitoramento.SupervisaoTecnica">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.Monitoramento.FonteDadosID">
+            <summary>
+            ID de fonte de dados
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.Monitoramento.TipoFonteDados">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.Monitoramento.EstabelecimentoID">
+            <summary>
+            ID do estabelecimento
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.Monitoramento.Estabelecimento">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.Monitoramento.CoordenadoriaId">
+            <summary>
+            ID da coordenadoria
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.Monitoramento.Coordenadoria">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao">
+            <summary>
+            Monitoramento da Gestação
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.MonitoramentoID">
+            <summary>
+            ID do monitoramento
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.Monitoramento">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.PacienteID">
+            <summary>
+            ID da paciente
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.Paciente">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.IdadeAtualFormatada">
+            <summary>
+            Idade atual da paciente formatada da seguinte forma: xxa xxm xxd <br />
+            Sendo: a = anos, m = meses, d = dias
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.SupervisaoTecnicaID">
+            <summary>
+            ID da Supervisão técnica
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.SupervisaoTecnica">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.RefAltoRiscoID">
+            <summary>
+            ID de referência de hospital para alto risco
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.Referencia">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.EstabelecimentoId">
+            <summary>
+            ID do estabelecimento, ou, local de acompanhamento da paciente.
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.Estabelecimento">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.ImportaExameID">
+            <summary>
+            ID do exame importado
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.ImportaExame">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.IGImportacao">
+            <summary>
+            IG na importação (sigo não sabendo o que é IG) <br />
+            Formato do IG na importação: xs xd <br />
+            Sendo: s = Semana, d = Dias
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.QuantidadeContato">
+            <summary>
+            Quantidade de vezes que houve contato com a paciente. <br></br>
+            Caso seja a primeira vez, deverá incluir nesta propriedade o valor "PRIMEIRO CONTATO"
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.IdadeGestacional">
+            <summary>
+            Idade gestacional da gestante, seguindo o seguinte formato: <br></br>
+            xxs xxd
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.CicloGestacional">
+            <summary>
+            Ciclo gestacional, seguindo do seguinte formato: <br></br>
+            xº xxxxxxxxxxxx
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.PacienteRiscosID">
+            <summary>
+            Riscos que a paciente possui
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.PacienteRiscos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.PreNatalID">
+            <summary>
+            ID do pre-natal
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.ConsultaPreNatal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.FaixaEtariaID">
+            <summary>
+            ID da faixa etária
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.MonitoramentoDaGestacao.TipoFaixaEtaria">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GeoModel.Models.MaePaulistana.PacienteRiscos">
             <summary>
             relacionamento paciente risco condicao saude
             </summary>
         </member>
-        <member name="P:GeoModel.Models.MaePaulistana.PacienteGestacaoRiscoCondicaoSaude.PacienteId">
+        <member name="P:GeoModel.Models.MaePaulistana.PacienteRiscos.PacienteRiscosID">
+            <summary>
+            ID da tabela PacienteRiscos
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.PacienteRiscos.PacienteID">
             <summary>
             id da paciente
             </summary>
         </member>
-        <member name="P:GeoModel.Models.MaePaulistana.PacienteGestacaoRiscoCondicaoSaude.CommonPaciente">
+        <member name="P:GeoModel.Models.MaePaulistana.PacienteRiscos.Paciente">
             <summary>
             paciente
             </summary>
         </member>
-        <member name="P:GeoModel.Models.MaePaulistana.PacienteGestacaoRiscoCondicaoSaude.ParametroIdRiscoCondicaoSaude">
+        <member name="P:GeoModel.Models.MaePaulistana.PacienteRiscos.RiscoID">
             <summary>
-            id do parametro risco condicao saude
+            id do tipo de risco á saude
             </summary>
         </member>
-        <member name="P:GeoModel.Models.MaePaulistana.PacienteGestacaoRiscoCondicaoSaude.ParametroRiscoCondicaoSaude">
+        <member name="P:GeoModel.Models.MaePaulistana.PacienteRiscos.TipoRisco">
             <summary>
             parametro risco condicao saude
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.PacienteRiscos.MotivoSugestao">
+            <summary>
+            Motivo da sugestão de risco
             </summary>
         </member>
         <member name="T:GeoModel.Models.MaePaulistana.Parto">
@@ -7925,6 +8366,21 @@
         <member name="P:GeoModel.Models.MaePaulistana.Parto.Acolhimento">
             <summary>
             
+            </summary>
+        </member>
+        <member name="T:GeoModel.Models.MaePaulistana.QualificacaoMunicipe">
+            <summary>
+            Model qualificação munícipe
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.QualificacaoMunicipe.QualificacaoID">
+            <summary>
+            ID da Qualificação munícipe
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.QualificacaoMunicipe.QualificacaoDesc">
+            <summary>
+            Descrição, ou, nome do tipo de qualificação munícipe
             </summary>
         </member>
         <member name="T:GeoModel.Models.MaePaulistana.Sinasc">
@@ -8510,6 +8966,36 @@
         <member name="P:GeoModel.Models.MaePaulistana.Sinasc.Estabelecimento">
             <summary>
             
+            </summary>
+        </member>
+        <member name="T:GeoModel.Models.MaePaulistana.TipoAtendimento">
+            <summary>
+            Model Tipo atendimento
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.TipoAtendimento.TipoAtendimentoID">
+            <summary>
+            Tipo atendimento ID
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.TipoAtendimento.DescTipoAtendimento">
+            <summary>
+            Descrição tipo atendimento 
+            </summary>
+        </member>
+        <member name="T:GeoModel.Models.MaePaulistana.TiposContatoNaoEfetivado">
+            <summary>
+            model Tipos de contato não foi efetivado para declarar diferentes motivos.
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.TiposContatoNaoEfetivado.TipoContNaoEfetivadoID">
+            <summary>
+            ID do tipo de contato não efetivado
+            </summary>
+        </member>
+        <member name="P:GeoModel.Models.MaePaulistana.TiposContatoNaoEfetivado.DescTipoContNaoEfetivado">
+            <summary>
+            Descrição do tipo de contato não efetivado
             </summary>
         </member>
         <member name="T:GeoModel.Models.MaePaulistana.Ultrassom">
@@ -9972,6 +10458,16 @@
             IRepository de Models.Common.SupervisaoTecnica
             </summary>
         </member>
+        <member name="P:GeoModel.Repositories.IRepositoryWrapper.Common_TipoRisco">
+            <summary>
+            IRepository de Models.Common.TipoRisco
+            </summary>
+        </member>
+        <member name="P:GeoModel.Repositories.IRepositoryWrapper.Common_TipoTelefone">
+            <summary>
+            IRepository de Models.Common.TipoTelefone
+            </summary>
+        </member>
         <member name="P:GeoModel.Repositories.IRepositoryWrapper.Common_UF">
             <summary>
             IRepository de Models.Common.UF
@@ -10092,6 +10588,11 @@
             IRepository de Models.MaePaulistana.ConsultaPreNatal
             </summary>
         </member>
+        <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_ContatoPaciente">
+            <summary>
+            IRepository de Models.MaePaulistana.ContatoPaciente
+            </summary>
+        </member>
         <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_EntrevistaPuerperalGestante">
             <summary>
             IRepository de Models.MaePaulistana.EntrevistaPuerperalGestante
@@ -10105,6 +10606,11 @@
         <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_EntrevistaPuerperalRNParametroDoencaCongenita">
             <summary>
             IRepository de Models.MaePaulistana.EntrevistaPuerperalRNParametroDoencaCongenita
+            </summary>
+        </member>
+        <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_EvolucaoPaciente">
+            <summary>
+            IRepository de Models.MaePaulistana.EvolucaoPaciente
             </summary>
         </member>
         <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_ExameGestante">
@@ -10122,9 +10628,9 @@
             IRepository de Models.MaePaulistana.Monitoramento
             </summary>
         </member>
-        <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_PacienteGestacaoRiscoCondicaoSaude">
+        <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_PacienteRiscos">
             <summary>
-            IRepository de Models.MaePaulistana.PacienteGestacaoRiscoCondicaoSaude
+            IRepository de Models.MaePaulistana.PacienteRiscos
             </summary>
         </member>
         <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_Parto">
@@ -10135,6 +10641,11 @@
         <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_Sinasc">
             <summary>
             IRepository de Models.MaePaulistana.Sinasc
+            </summary>
+        </member>
+        <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_TipoAtendimento">
+            <summary>
+            IRepository de Models.MaePaulistana.TipoAtendimento
             </summary>
         </member>
         <member name="P:GeoModel.Repositories.IRepositoryWrapper.MaePaulistana_Ultrassom">
@@ -10544,6 +11055,16 @@
             IRepository de Models.Common.SupervisaoTecnica
             </summary>
         </member>
+        <member name="P:GeoModel.Repositories.RepositoryWrapper.Common_TipoRisco">
+            <summary>
+            IRepository de Models.Common.TipoRisco
+            </summary>
+        </member>
+        <member name="P:GeoModel.Repositories.RepositoryWrapper.Common_TipoTelefone">
+            <summary>
+            IRepository de Models.Common.TipoTelefone
+            </summary>
+        </member>
         <member name="P:GeoModel.Repositories.RepositoryWrapper.Common_UF">
             <summary>
             IRepository de Models.Common.UF
@@ -10664,6 +11185,11 @@
             IRepository de Models.MaePaulistana.ConsultaPreNatal
             </summary>
         </member>
+        <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_ContatoPaciente">
+            <summary>
+            IRepository de Models.MaePaulistana.ContatoPaciente
+            </summary>
+        </member>
         <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_EntrevistaPuerperalGestante">
             <summary>
             IRepository de Models.MaePaulistana.EntrevistaPuerperalGestante
@@ -10677,6 +11203,11 @@
         <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_EntrevistaPuerperalRNParametroDoencaCongenita">
             <summary>
             IRepository de Models.MaePaulistana.EntrevistaPuerperalRNParametroDoencaCongenita
+            </summary>
+        </member>
+        <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_EvolucaoPaciente">
+            <summary>
+            IRepository de Models.MaePaulistana.EvolucaoPaciente
             </summary>
         </member>
         <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_ExameGestante">
@@ -10694,9 +11225,9 @@
             IRepository de Models.MaePaulistana.Monitoramento
             </summary>
         </member>
-        <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_PacienteGestacaoRiscoCondicaoSaude">
+        <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_PacienteRiscos">
             <summary>
-            IRepository de Models.MaePaulistana.PacienteGestacaoRiscoCondicaoSaude
+            IRepository de Models.MaePaulistana.PacienteRiscos
             </summary>
         </member>
         <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_Parto">
@@ -10707,6 +11238,11 @@
         <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_Sinasc">
             <summary>
             IRepository de Models.MaePaulistana.Sinasc
+            </summary>
+        </member>
+        <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_TipoAtendimento">
+            <summary>
+            IRepository de Models.MaePaulistana.TipoAtendimento
             </summary>
         </member>
         <member name="P:GeoModel.Repositories.RepositoryWrapper.MaePaulistana_Ultrassom">

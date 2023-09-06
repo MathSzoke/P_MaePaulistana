@@ -1,6 +1,6 @@
 ﻿namespace MaePaulistana.Models;
 
-public class MonitoramentoVO
+public class MonitoringVO
 {
     public DateTime? DataAgendada { get; set; }
     public string? PacienteNome { get; set; }

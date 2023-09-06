@@ -1,7 +1,9 @@
 ﻿@page "/monitoring"
 @model Monitoring
-
-<link rel="stylesheet" href="~/css/monitoring.css" asp-append-version="true" />
+@{
+    var prevDisabled = !Model.PrevPage ? "disabled" : "";
+    var nextDisabled = !Model.NextPage ? "disabled" : "";
+}
 
 <div class="container-tables">
     <div>
@@ -19,16 +21,15 @@
             </div>
             <div class="field-cns fields-filter">
                 <span class="span-inputs unselectable">CNS:</span>
-                <input type="number" name="cns" id="cns" class="ipt-cns no-spinners" placeholder="123 4567 8910 1112" />
+                <input type="text" name="cns" id="cnsSearch" class="ipt-cns no-spinners" placeholder="xxx xxxx xxxx xxxx" />
             </div>
         </div>
-
+        <div class="area-btn btn-search">
+            <button id="searchBtn" type="submit" class="btn btn-success">Localizar</button>
+        </div>
         <div class="area-buttons-monitoring">
             <div class="area-btn">
                 <button class="btn btn-primary new-patient" data-bs-toggle="modal" data-bs-target="#newRegisterModal">Novo cadastro</button>
-            </div>
-            <div class="area-btn">
-                <button class="btn btn-success">Localizar</button>
             </div>
         </div>
     </div>
@@ -38,44 +39,72 @@
         <thead>
             <tr>
                 <th class="empty-square"></th>
-                <th>Data agendada</th>
-                <th>Gestante/Puérpera</th>
-                <th>CNS</th>
-                <th>Unidade de acompanhamento</th>
-                <th>Tipo de atendimento</th>
-                <th>Previsão Parto</th>
-                <th>Última Ligação</th>
-                <th>Enfermeira responsável</th>
+                <th class="unselectable">Data agendada</t>
+                <th class="unselectable">Gestante/Puérpera</th>
+                <th class="unselectable">CNS</th>
+                <th class="unselectable">Unidade de acompanhamento</th>
+                <th class="unselectable">Tipo de atendimento</th>
+                <th class="unselectable">Previsão Parto</th>
+                <th class="unselectable">Última Ligação</th>
+                <th class="unselectable">Enfermeira responsável</th>
             </tr>
         </thead>
         <tbody id="table">
-            <tr>
-                <td>
-                    <div class="details-patient">
-                        <div class="area-eye">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-                            </svg>
-                        </div>
-                        <div class="area-telephone">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-                            </svg>
-                        </div>
-                    </div>
-                </td>
-                <td>DataAgendada</td>
-                <td>PacienteNome</td>
-                <td>PacienteCNS</td>
-                <td>UnidadeAcompanhamento</td>
-                <td>TipoAtendimento</td>
-                <td>PrevisaoParto</td>
-                <td>UltimaLigacao</td>
-                <td>NomeEnfermeira</td>
-            </tr>
+            @if (Model.DataMonitoring != null)
+            {
+                @foreach (var item in Model.DataMonitoring)
+                {
+                    <tr>
+                        <td>
+                            <div class="details-patient">
+                                <div class="area-eye" data-toggle="tooltip" data-placement="top" title="Detalhes paciente">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                    </svg>
+                                </div>
+                                <div class="area-telephone register-call" data-bs-target="#registerCallModal" data-toggle="tooltip" data-bs-toggle="modal" data-placement="top" title="Registrar ligações">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="data-table">@item.DataAgendada</td>
+                        <td class="data-table">@item.PacienteNome</td>
+                        <td class="data-table">@item.PacienteCNS</td>
+                        <td class="data-table">@item.UnidadeAcompanhamento</td>
+                        <td class="data-table">@item.TipoAtendimento</td>
+                        <td class="data-table">@item.PrevisaoParto</td>
+                        <td class="data-table">@item.UltimaLigacao</td>
+                        <td class="data-table">@item.NomeEnfermeira</td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
+    @if (Model.TotalPages > 1)
+    {
+        <ul class="pagination pagination-sm">
+            <li class="page-item @prevDisabled">
+                <a class="page-link" asp-page="./Monitoring" asp-route-pageIndex="@(Model.PageIndex - 1)">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @for (int i = 0; i < Model.TotalPages; i++)
+            {
+                int pageNumber = i + 1;
+                <li class="page-item">
+                    <a class="page-link">@pageNumber</a>
+                </li>
+            }
+            <li class="page-item @nextDisabled">
+                <a class="page-link" asp-page="./Monitoring" asp-route-pageIndex="@(Model.PageIndex + 1)">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    }
 </div>
 
 <div class="modal fade" id="newRegisterModal" tabindex="-1" aria-labelledby="newRegisterModalLabel" aria-hidden="true">
@@ -85,11 +114,20 @@
                 <h3 class="modal-title unselectable" id="newRegisterModalLabel">Novo registro</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body modal-body-new-register">
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success">Salvar</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registerCallModal" tabindex="-1" aria-labelledby="registerCallModalLabel" aria-hidden="true">
+    <div class="modal-dialog model-dialog-register-call">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title unselectable">Registrar ligações</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-register-call">
             </div>
         </div>
     </div>
@@ -97,10 +135,49 @@
 
 @section scripts{
     <script>
-        $(function (){
+        $(function ()
+        {
+            $('[data-toggle="tooltip"]').tooltip();
+        })
+
+        $(function () 
+        {
             $('button.new-patient').on('click', function(){
-                $('.modal-body').load('/NewPatient/');
+                $('.modal-body-new-register').load('/NewPatient/');
+            });
+
+            $('div.register-call').on('click', function () {
+                $('.modal-body-register-call').load('/RegisterCall/');
             })
         })
+
+        const cnsSearch = document.getElementById("cnsSearch");
+
+        cnsSearch.oninput = (e) => {
+            let cursorPos = e.target.selectionStart
+            let formatInput = cnsSearchChange(e.target)
+            e.target.value = String(formatInput)
+            let isBackspace = (e?.data == null) ? true : false
+            let nextCusPos = nextDigit(formatInput, cursorPos, isBackspace)
+
+            cnsSearch.setSelectionRange(nextCusPos + 1, nextCusPos + 1);
+        }
+
+        $(document).ready(function () {
+            $('#name').on('input', function () {
+                var searchTerm = $(this).val();
+                performSearch(searchTerm, 'name');
+            });
+
+            $('#birthdate').on('change', function () {
+                var searchTerm = $(this).val();
+                performSearch(searchTerm, 'birthdate');
+            });
+
+            $('#cnsSearch').on('input', function () {
+                var searchTerm = $(this).val();
+                performSearch(searchTerm, 'cns');
+            });
+        });
     </script>
 }

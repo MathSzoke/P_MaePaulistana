@@ -3,4 +3,80 @@
 @{
 }
 
-<p>unlocalized works</p>
+<link rel="stylesheet" href="~/css/monitoring.css" asp-append-version="true" />
+
+<div class="container-tables">
+    <table>
+        <caption class="header-tables"><h3 class="unselectable">Não localizados</h3></caption>
+        <thead>
+            <tr>
+                <th class="empty-square"></th>
+                <th class="unselectable">Data agendada</th>
+                <th class="unselectable">Gestante/Puérpera</th>
+                <th class="unselectable">CNS</th>
+                <th class="unselectable">Unidade de acompanhamento</th>
+                <th class="unselectable">Tipo de atendimento</th>
+                <th class="unselectable">Previsão Parto</th>
+                <th class="unselectable">Última Ligação</th>
+                <th class="unselectable">Enfermeira responsável</th>
+            </tr>
+        </thead>
+        <tbody id="table">
+            @if (Model.DataUnlocalized != null)
+            {
+                @foreach (var item in Model.DataUnlocalized)
+                {
+                    <tr>
+                        <td>
+                            <div class="details-patient">
+                                <div class="area-eye">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                    </svg>
+                                </div>
+                                <div class="area-telephone register-call register-call-unlocalized" data-patient-id="@item.PacienteID" data-bs-target="#registerCallModal" data-bs-toggle="modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="unselectable">@item.DataAgendada</td>
+                        <td class="unselectable">@item.PacienteNome</td>
+                        <td class="unselectable">@item.PacienteCNS</td>
+                        <td class="unselectable">@item.UnidadeAcompanhamento</td>
+                        <td class="unselectable">@item.TipoAtendimento</td>
+                        <td class="unselectable">@item.PrevisaoParto</td>
+                        <td class="unselectable">@item.UltimaLigacao</td>
+                        <td class="unselectable">@item.CriadoPor</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="registerCallModal" tabindex="-1" aria-labelledby="registerCallModalLabel" aria-hidden="true">
+    <div class="modal-dialog model-dialog-register-call">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title unselectable">Registrar ligações</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-register-call">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('div.register-call-unlocalized').on('click', function () {
+                var patientID = $(this).data('patient-id');
+                $('.modal-body-register-call').load('/RegisterCall?patientID=' + patientID);
+            })
+        })
+    </script>
+}

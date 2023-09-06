@@ -4,15 +4,13 @@
     ViewData["Title"] = "Home page";
 }
 
-<link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
-
 <div class="nav-container">
     <nav class="navbar navbar-light bg-light">
         <a href="#" class="navbar-brand brand-project">
             <h3 class="unselectable">MÃE PAULISTANA</h3>
         </a>
 
-        <button class="btn btn-logout">
+        <button class="btn-logout">
             <h5 class="name-person">Nome da Enfermeira</h5>
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-power i-logout" viewBox="0 0 16 16">
                 <path d="M7.5 1v7h1V1h-1z" />
@@ -23,23 +21,18 @@
 </div>
 
 <div class="content">
-    <button class="btn btn-home" onclick="showComponent('monitoring')">Monitoramentos</button>
-    <button class="btn btn-home" onclick="showComponent('unlocalized')">Não localizados(as)</button>
-    <button class="btn btn-home" onclick="showComponent('atention')">ATENÇÃO</button>
+    <button class="btn btn-home" onclick="showComponent('monitoring')" data-toggle="tooltip" data-placement="top" title="Pacientes em monitoramento">Monitoramentos</button>
+    <button class="btn btn-home" onclick="showComponent('unlocalized')" data-toggle="tooltip" data-placement="top" title="Pacientes não localizados">Não localizados(as)</button>
+    <button class="btn btn-home" onclick="showComponent('atention')" data-toggle="tooltip" data-placement="top" title="Pacientes com atenção">ATENÇÃO</button>
 </div>
 
+<div id="component-container" class="component-container"></div>
 
-<div id="component-container" class="component-container">
-</div>
-
-<script>
-    function showComponent(componentName){
-        $.ajax({
-            url: componentName,
-            type: 'GET',
-            success: function (data) {
-                $("#component-container").html(data);
-            }
-        });
-    }
-</script>
+@section scripts
+{
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+}

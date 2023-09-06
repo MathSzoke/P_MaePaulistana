@@ -16,14 +16,10 @@
 
 .select-units,
 .select-attendant-types {
-    width: 250px;
+    width: 350px;
     padding: 6px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-.checkbox-label {
-    margin-left: 10px;
 }
 
 div.body-new-register {
@@ -46,7 +42,7 @@ div.container-two-new-register {
 }
 
 .qualification-citizen {
-    justify-content: unset;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -58,26 +54,9 @@ div.modal-footer, div.register-telephone {
     margin: 1em;
 }
 
-.modal {
-    background: rgba(0, 0, 0, 0.15);
-    display: block;
-}
-
-div.modal-header {
-    border-bottom: 1px solid orange;
-}
-
 div.header-telephone {
     border: none;
     margin: 1em 0 0 0 !important;
-}
-
-div.modal-header, div.modal-body {
-    margin: 1em;
-}
-
-button.close {
-    font-size: 30px;
 }
 
 table.new-telephones {

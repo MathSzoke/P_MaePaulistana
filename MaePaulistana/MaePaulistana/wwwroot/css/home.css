@@ -43,3 +43,14 @@ div.component-container {
     color: white !important;
     transform: scale(1.05);
 }
+
+.btn-logout:hover
+{
+    transform: scale(1.05);
+}
+
+.btn-logout
+{
+    border: none;
+    background: unset;
+}

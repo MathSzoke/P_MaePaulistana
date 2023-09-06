@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MaePaulistana\\P_MaePaulistana\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj": {}
+    "D:\\MaePaulistana\\2023MaePaulistanaDigital\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj": {}
   },
   "projects": {
-    "D:\\MaePaulistana\\P_MaePaulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj": {
+    "D:\\MaePaulistana\\2023MaePaulistanaDigital\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MaePaulistana\\P_MaePaulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj",
+        "projectUniqueName": "D:\\MaePaulistana\\2023MaePaulistanaDigital\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj",
         "projectName": "GeoModel",
-        "projectPath": "D:\\MaePaulistana\\P_MaePaulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj",
+        "projectPath": "D:\\MaePaulistana\\2023MaePaulistanaDigital\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj",
         "packagesPath": "C:\\Users\\Mathe\\.nuget\\packages\\",
-        "outputPath": "D:\\MaePaulistana\\P_MaePaulistana\\GeoModel\\GeoModel\\GeoModel\\obj\\",
+        "outputPath": "D:\\MaePaulistana\\2023MaePaulistanaDigital\\GeoModel\\GeoModel\\GeoModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mathe\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -50,11 +50,11 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.AspNetCore.Session": {
               "target": "Package",
@@ -62,37 +62,37 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[7.0.0, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[7.0.9, )"
             }
           },
           "imports": [
@@ -111,18 +111,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\MaePaulistana\\P_MaePaulistana\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj": {
+    "D:\\MaePaulistana\\2023MaePaulistanaDigital\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MaePaulistana\\P_MaePaulistana\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj",
+        "projectUniqueName": "D:\\MaePaulistana\\2023MaePaulistanaDigital\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj",
         "projectName": "MaePaulistana",
-        "projectPath": "D:\\MaePaulistana\\P_MaePaulistana\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj",
+        "projectPath": "D:\\MaePaulistana\\2023MaePaulistanaDigital\\MaePaulistana\\MaePaulistana\\MaePaulistana.csproj",
         "packagesPath": "C:\\Users\\Mathe\\.nuget\\packages\\",
-        "outputPath": "D:\\MaePaulistana\\P_MaePaulistana\\MaePaulistana\\MaePaulistana\\obj\\",
+        "outputPath": "D:\\MaePaulistana\\2023MaePaulistanaDigital\\MaePaulistana\\MaePaulistana\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mathe\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -139,8 +139,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\MaePaulistana\\P_MaePaulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj": {
-                "projectPath": "D:\\MaePaulistana\\P_MaePaulistana\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj"
+              "D:\\MaePaulistana\\2023MaePaulistanaDigital\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj": {
+                "projectPath": "D:\\MaePaulistana\\2023MaePaulistanaDigital\\GeoModel\\GeoModel\\GeoModel\\GeoModel.csproj"
               }
             }
           }
@@ -158,6 +158,28 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.ExpressionMapping": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.9, )"
             }
           },
           "imports": [
@@ -179,7 +201,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -34,3 +34,29 @@ div.area-eye {
 div.area-telephone {
     color: orange !important;
 }
+
+.page-item
+{
+    cursor:pointer;
+}
+
+.disabled
+{
+    cursor: unset !important;
+}
+
+.btn-search 
+{
+    float: right;
+    margin-top: 1em;
+    padding-right: 4em;
+}
+
+div.register-call, div.area-eye
+{
+    cursor: pointer;
+}
+    div.register-call:hover, div.area-eye:hover
+    {
+        transform: scale(1.1);
+    }

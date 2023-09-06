@@ -1,0 +1,266 @@
+﻿@page "/RegisterCall"
+@using MaePaulistana.Models;
+@model MaePaulistana.Pages.RegisterCall.RegisterCallModel
+
+<div class="border-bottom border-warning m-4 p-4 mt-0 pt-0">
+	<div class="row">
+		<div class="col-6 col-sm-3 unselectable">Telefone Residencial</div>
+		<div class="col-6 col-sm-3 unselectable">Telefone Celular</div>
+		<div class="col-6 col-sm-3 unselectable">Telefone Recado</div>
+
+		<div class="w-100 d-none d-md-block"></div>
+
+		<label class="col-6 col-sm-3 unselectable d-flex align-items-center">
+			@if (!string.IsNullOrEmpty(Model.HomePhone))
+			{
+				<input type="radio" id="homePhone" value="@Model.HomePhone" name="telephoneRegistred" class="m-2" />
+				<span class="m-2">@Model.HomePhone</span>
+			}
+		</label>
+		<label class="col-6 col-sm-3 unselectable d-flex align-items-center">
+			@if (!string.IsNullOrEmpty(Model.MobilePhone))
+			{
+				<input type="radio" id="mobilePhone" value="@Model.MobilePhone" name="telephoneRegistred" class="m-2" />
+				<span class="m-2">@Model.MobilePhone</span>
+			}
+		</label>
+		<label class="col-6 col-sm-3 unselectable d-flex align-items-center">
+			@if (!string.IsNullOrEmpty(Model.MessagePhone))
+			{
+				<input type="radio" id="messagePhone" value="@Model.MessagePhone" name="telephoneRegistred" class="m-2" />
+				<span class="m-2">@Model.MessagePhone</span>
+			}
+		</label>
+	</div>
+</div>
+
+<div class="border-bottom border-warning m-4 p-4 mt-0 pt-0">
+	<div class="row">
+		<div class="row">
+			<span>Início da ligação: <strong>@DateTime.Now</strong></span>
+		</div>
+		<div class="row mt-2">
+			<span>Contato efetivo?</span>
+		</div>
+		<div class="row-cols-auto mt-2">
+			<label class="unselectable">
+				<input id="radioYes" type="radio" value="1" name="contactEffective" class="m-2" />
+				<span class="m-2">Sim</span>
+			</label>
+			<label class="unselectable">
+				<input id="radioNo" type="radio" value="0" name="contactEffective" class="m-2" />
+				<span class="m-2">Não</span>
+			</label>
+			<label class="unselectable">
+				<input id="radioReschedule" type="radio" value="2" name="contactEffective" class="m-2" />
+				<span class="m-2">Pediu para reagendar</span>
+			</label>
+		</div>
+	</div>
+	<div class="modal-footer border-0 d-flex justify-content-between">
+		<div class="align-items-center">
+			<select class="form-select" style="display: none" id="selectOptions">
+				<option value="null" disabled selected hidden>Motivos</option>
+				@foreach (var typeReason in Model.TypesContactNotEffected!)
+				{
+					<option value="@typeReason.TipoContNaoEfetivadoID">@typeReason.DescTipoContNaoEfetivado</option>
+				}
+			</select>
+		</div>
+		<div>
+			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+			<button type="submit" id="btnRegisterCall" class="btn btn-success">Salvar</button>
+		</div>
+	</div>
+</div>
+
+<div class="container border-1 border-dark">
+	<table class="table-bordered">
+		<caption class="card-title text-center text-black">Histórico de ligações</caption>
+		<thead class="justify-content-center">
+			<tr>
+				<th class="unselectable header-tables">Data Contato</th>
+				<th class="unselectable header-tables">Nome do contato</th>
+				<th class="unselectable header-tables">Contato Efetivo</th>
+				<th class="unselectable header-tables">Motivo</th>
+				<th class="unselectable header-tables">Observações</th>
+				<th class="unselectable header-tables">Telefone utilizado</th>
+				<th class="unselectable header-tables">Atendente</th>
+			</tr>
+		</thead>
+		<tbody>
+			@if (Model.HistoryCallsProp != null)
+			{
+				@foreach (var c in Model.HistoryCallsProp)
+				{
+					<tr>
+						<td class="data-table unselectable">@c.DataContatoLigacao</td>
+						<td class="data-table unselectable">@c.ContatoNome</td>
+						<td class="data-table unselectable">@(c.ContatoEfetivado == 0 ? "Não" : "Sim")</td>
+						<td class="data-table unselectable">@c.MotivoNaoLocalizada</td>
+						<td class="data-table unselectable">@c.ObsLigacao</td>
+						<td class="data-table unselectable">@c.TelefoneUtilizado</td>
+						<td class="data-table unselectable">@c.NomeAtendente</td>
+					</tr>
+				}
+			}
+		</tbody>
+	</table>
+</div>
+
+<script>
+	$(document).ready(function () {
+		const radioNo = document.getElementById("radioNo");
+		const selectOptions = document.getElementById("selectOptions");
+		var callPatientToAdd = {};
+
+		const radioInputs = document.querySelectorAll('input[name="contactEffective"]');
+
+		radioInputs.forEach(function (radioInput)
+		{
+			radioInput.addEventListener("change", function ()
+			{
+				if (radioNo.checked)
+				{
+					selectOptions.style.display = "block";
+				}
+				else
+				{
+					selectOptions.style.display = "none";
+					selectOptions.value = null;
+				}
+			});
+		});
+
+		$("#btnRegisterCall").on("click", () =>
+		{
+			var homePhoneInput = document.getElementById("homePhone");
+			var mobilePhoneInput = document.getElementById("mobilePhone");
+			var messagePhoneInput = document.getElementById("messagePhone");
+
+			var homePhoneVal = homePhoneInput ? homePhoneInput.value : null;
+			var mobilePhoneVal = mobilePhoneInput ? mobilePhoneInput.value : null;
+			var messagePhoneVal = messagePhoneInput ? messagePhoneInput.value : null;
+
+			var contactEffectiveInput = document.querySelector('input[name="contactEffective"]');
+			var contactEffectedVal = contactEffectiveInput ? contactEffectiveInput.value : null;
+
+			var telehoneInput = document.querySelector('input[name="telephoneRegistred"]')
+			var telephoneUsedVal = telehoneInput ? telehoneInput.value : null;
+
+			var contactEffectiveInputs = document.querySelectorAll('input[name="contactEffective"]');
+			var contactEffectedVal = null;
+			let reasonContactNotEffectedID = null;
+
+			for (var i = 0; i < contactEffectiveInputs.length; i++)
+			{
+				if (contactEffectiveInputs[i].checked)
+				{
+					contactEffectedVal = contactEffectiveInputs[i].value;
+					break;
+				}
+			}
+
+			if (contactEffectedVal === "0")
+			{
+				reasonContactNotEffectedID = document.getElementById("selectOptions").value;
+			}
+
+			callPatientToAdd = {
+				TelefoneResidencial: homePhoneVal,
+				TelefoneCelular: mobilePhoneVal,
+				TelefoneRecado: messagePhoneVal,
+				TelefoneUtilizado: telephoneUsedVal,
+				ContatoEfetivado: parseInt(contactEffectedVal),
+				TipoContNaoEfetivadoID: reasonContactNotEffectedID
+			}
+
+			if(contactEffectedVal != "0")
+			{
+				RegisterContactPatient(callPatientToAdd);
+			}
+			else
+			{
+				RegisterContactNotEffected(callPatientToAdd);
+			}
+		})
+	});
+
+	function RegisterContactPatient(jsonCallPatientToAdd)
+	{
+		// Faz uma chamada AJAX para enviar os dados para o servidor
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "/ContactPatient/RegisterCall", true);
+		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xhr.onreadystatechange = function () {
+			switch (xhr.status) {
+				case 200:
+					toastr.success("Ligação registrado no sistema.");
+					window.location.href = "/Monitoring/Binder";
+					break;
+				case 500:
+					toastr.error("Algo deu errado, por favor, tente novamente.");
+					break;
+				case 204:
+					toastr.info("Preencha os campos!");
+					break;
+				case 400:
+					toastr.error(xhr.responseText);
+					break;
+			}
+		};
+		xhr.send(JSON.stringify(callPatientToAdd));
+	}
+
+	function RegisterContactNotEffected(jsonCallPatientToAdd)
+	{
+		// Faz uma chamada AJAX para enviar os dados para o servidor
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "/ContactPatient/RegisterPatientContactNotEffected", true);
+		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xhr.onreadystatechange = function () {
+			switch (xhr.status) {
+				case 200:
+					toastr.success("Paciente registrado no sistema como não encontrada.");
+					window.location.reload();
+					break;
+				case 500:
+					toastr.error("Algo deu errado, por favor, tente novamente.");
+					break;
+				case 204:
+					toastr.info("Preencha os campos!");
+					break;
+				case 400:
+					toastr.error(xhr.responseText);
+					break;
+			}
+		};
+		xhr.send(JSON.stringify(callPatientToAdd));
+	}
+
+	function UpdateContactPatient(jsonCallPatientToAdd)
+	{
+		// Faz uma chamada AJAX para enviar os dados para o servidor
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "/ContactPatient/UpdateMonitoringUnlocalized", true);
+		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xhr.onreadystatechange = function () {
+			switch (xhr.status) {
+				case 200:
+					toastr.success("Ligação registrado no sistema.");
+					window.location.href = "/Monitoring/Binder";
+					break;
+				case 500:
+					toastr.error("Algo deu errado, por favor, tente novamente.");
+					break;
+				case 204:
+					toastr.info("Preencha os campos!");
+					break;
+				case 400:
+					toastr.error(xhr.responseText);
+					break;
+			}
+		};
+		xhr.send(JSON.stringify(callPatientToAdd));
+	}
+</script>

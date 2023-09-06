@@ -1,0 +1,679 @@
+﻿@page "/Monitoring/Binder"
+@model BinderModel
+
+<div class="nav-container">
+	<nav class="navbar navbar-light bg-light">
+		<a href="index" class="navbar-brand brand-project">
+			<h3 class="unselectable">MÃE PAULISTANA</h3>
+		</a>
+
+		<button class="btn-logout">
+			<h5 class="name-person">Nome da Enfermeira</h5>
+			<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-power i-logout" viewBox="0 0 16 16">
+				<path d="M7.5 1v7h1V1h-1z" />
+				<path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
+			</svg>
+		</button>
+	</nav>
+</div>
+
+<section class="d-flex small font-12px mt-4 p-0">
+	@*Dados da gestante (que provavelmente deve aperecer apenas se for gestante?)*@
+	<div class="container p-0 m-0 row d-flex">
+		<div class="card-title mb-1">
+			<span class="unselectable"><strong class="fs-6">MONITORAMENTO DA GESTAÇÃO</strong></span>
+		</div>
+
+		<div class="d-flex justify-content-between w-75">
+			<ul class="p-0 m-0">
+				<li class="list-unstyled">
+					<label class="card-subtitle">Paciente:</label>
+					<span class="text-black"><strong>@Model.PatientName</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">CNS:</label>
+					<span class="text-black"><strong>@Model.PatientCNS</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">CPF:</label>
+					<span class="text-black"><strong>@Model.PatientCPF</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">Idade atual:</label>
+					<span class="text-black"><strong>@Model.CurrentAge</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">Ref. alto risco:</label>
+					<span class="text-black"><strong>@Model.RefHighRisk</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">Acompanhamento:</label>
+					<span class="text-black"><strong>@Model.PatientAccompaniment</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">Importação:</label>
+					<span class="text-black"><strong>@Model.PatientImportation</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">I.G. na Importação:</label>
+					<span class="text-black"><strong>@Model.IGImportation</strong></span>
+				</li>
+			</ul>
+			<ul class="p-0 m-0">
+				<li class="list-unstyled">
+					<label class="card-subtitle">Supervisão:</label>
+					<span class="text-black"><strong>@Model.PatientSupervision</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">Tipo contato:</label>
+					<span class="text-black"><strong>@Model.TypeContact</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">Idade gestacional:</label>
+					<span class="text-black"><strong>@Model.GestationalAge</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">Previsão de parto:</label>
+					<span class="text-black"><strong>@Model.PrevisionForecast</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">Ciclo gestacional:</label>
+					<span class="text-black"><strong>@Model.GestationalCycle</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">Riscos:</label>
+					<span class="text-black"><strong>@Model.PatientRisks</strong></span>
+				</li>
+				<li class="list-unstyled">
+					<label class="card-subtitle">SISPRENATAL:</label>
+					<span class="text-black"><strong>@Model.PatientSisPreNatal</strong></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	@*Dados da ligação ativa*@
+	<div class="container p-2 m-0 row border-2 border-orange border-solid">
+		<div class="row border-bottom-1 border-light">
+			<span class="unselectable p-0 m-0"><strong>DADOS DA LIGAÇÃO ATIVA</strong></span>
+		</div>
+		<div class="d-flex justify-content-between p-0 m-0">
+			<div>
+				<span class="text-black-50">Telefone: </span><strong>(11) 5542-5121</strong>
+			</div>
+			<div>
+				<span class="text-black-50">Início: </span><strong>16/04/2023 14:20</strong>
+			</div>
+		</div>
+		<div class="p-0">
+			<span class="p-0 m-0"><strong>ATENÇÃO</strong></span>
+			<textarea class="w-100 p-0" cols="4" placeholder="Digite o que deseja salvar como ATENÇÃO para a paciente em questão."></textarea>
+		</div>
+		<div class="d-flex justify-content-between mt-3 p-0 m-0">
+			<button class="btn btn-warning font-9px">Interromper Monitoramento</button>
+			<button class="btn btn-success font-9px">Finalizar entrevista</button>
+		</div>
+	</div>
+</section>
+
+<section class="border-1 p-3 mt-4">
+	@*Section monitoramento*@
+	<div>
+		<div class="nav-container m-3">
+			<header class="title-table">
+				<h3 class="unselectable">Monitoramento</h3>
+			</header>
+		</div>
+		<div class="col d-flex justify-content-around p-2">
+			<div class="d-flex align-items-center">
+				<label class="label-column unselectable">Fonte de dados:</label>
+				@foreach(var font in Model.SouceData!)
+				{
+					<div class="area-ipt-radio">
+						<label class="checkbox-label unselectable">
+							<input type="radio" value="@font.FonteDadosID" name="attendance-place" />
+							@font.FonteDadosNome
+						</label>
+					</div>
+				}
+			</div>
+			<div class="d-flex">
+				<div class="content-ipt">
+					<label class="label-column unselectable">Qualificação munícipe:</label>
+					<select name="attendance-place" class="form-select d-unset w-unset">
+						<option selected value="null" disabled>Selecionar</option>
+						@foreach (var qc in Model.QualificationCitizen!)
+						{
+							<option value="@qc.QualificacaoID">@qc.QualificacaoDesc</option>
+						}
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col d-flex justify-content-around p-2">
+			<div class="d-flex">
+				<div class="content-ipt">
+					<label class="label-column unselectable">Local de acompanhamento:</label>
+					<select name="attendance-place" class="form-select d-unset w-unset">
+						<option selected value="null" disabled>Selecionar</option>
+						@foreach (var est in Model.Establishment!)
+						{
+							<option value="@est.EstabelecimentoId">@est.EstabelecimentoNome</option>							
+						}
+					</select>
+				</div>
+			</div>
+			<div class="d-flex">
+				<div class="content-ipt">
+					<label class="label-column unselectable">Supervisão técnica:</label>
+					<select name="attendance-place" class="form-select d-unset w-unset">
+						<option selected value="null" disabled>Selecionar</option>
+						@foreach(var supervision in Model.SupervisionTec!)
+						{
+							<option value="@supervision.SupervisaoTecnicaId">@supervision.SupervisaoTecnicaNome</option>
+						}
+					</select>
+				</div>
+			</div>
+			<div class="d-flex">
+				<div class="content-ipt">
+					<label class="label-column unselectable">Coordenadoria:</label>
+					<select name="attendance-place" class="form-select d-unset w-unset">
+						<option selected value="null" disabled>Selecionar</option>
+						@foreach(var coord in Model.Coordination!)
+						{
+							<option value="@coord.CoordenadoriaId">@coord.CoordenadoriaNome</option>
+						}
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	@if(Model.IsPregnant)
+	{
+		@*Section Gestante*@
+		<section class="border-1 p-3 mt-4">
+			<div class="nav-container m-3">
+				<header class="title-table">
+					<h3 class="unselectable">Gestante</h3>
+				</header>
+			</div>
+			<section class="border-solid border-1 p-3 mt-2">
+				<component type="typeof(PatientData)" render-mode="ServerPrerendered" />
+				<section class="p-4">
+					<fieldset class="form-group m-4">
+						<div class="row align-items-center">
+							<div class="col-sm d-inline-flex">
+								<legend class="col-form-label pt-0"><strong>Caso crítico?</strong></legend>
+								<div class="form-check-inline col-sm form-switch">
+									<input class="form-check-input" type="radio" name="criticalCase" id="ccYes" value="ccYes">
+									<label class="form-check-label" for="ccYes">Sim</label>
+								</div>
+								<div class="form-check-inline col-sm form-switch">
+									<input class="form-check-input" type="radio" name="criticalCase" id="ccNo" value="ccNo">
+									<label class="form-check-label" for="ccNo">Não</label>
+								</div>
+							</div>
+							<div class="col-sm d-flex align-items-center">
+								<label class="label-column"><strong>Motivos</strong></label>
+								<select class="form-select m-4 mt-0 mb-0">
+									<option value="null" selected>Selecionar</option>
+									<option value="violenceDomestic">Violência Doméstica</option>
+									<option value="violenceObstetric">Violência Obstétrica</option>
+									<option value="vaginalBleeding">Sangramento Vaginal</option>
+									<option value="emotionalComplaints">Queixas emocionais</option>
+									<option value="fetalMalformation">Malformação fetal</option>
+									<option value="fetalDeath">Violência Obstétrica</option>
+									<option value="riskJudicialization">Risco de judicialização</option>
+									<option value="other">Outro</option>
+								</select>
+							</div>
+							<div class="col-sm d-flex align-items-center">
+								<label class="label-column"><strong>Alerta</strong></label>
+								<select class="form-select m-4 mt-0 mb-0">
+									<option value="null" selected>Selecionar</option>
+									<option value="vacinalSituation">Situação vacinal</option>
+									<option value="pendingExams">Pendência de exames</option>
+									<option value="respiratorySymptoms">Sintomática respiratória</option>
+									<option value="emergencyService">Passagem em serviço de urgência</option>
+									<option value="prenatalAbsenteeism">Absenteísmo em Pré-Natal</option>
+									<option value="difficultySchedulingAppointment">Dificuldade de agendamento de consulta</option>
+									<option value="difficultySchedulingUSG">Dificuldade de agendamento de USG</option>
+									<option value="terminatePregnancy">Encerrar Gestação</option>
+								</select>
+							</div>
+						</div>
+					</fieldset>
+				</section>
+				<section class="border-solid border-1 p-3 mt-2">
+					<div class="m-3">
+						<header class="sub-title-table">
+							<h5 class="unselectable">Pai da criança</h5>
+						</header>
+					</div>
+					<div class="m-3">
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="content-ipt">
+								<label class="label-column unselectable"><strong>Faixa etária:</strong></label>
+								<select name="attendance-place" class="form-select d-unset w-unset">
+									<option selected="" value="null">Selecionar</option>
+									<option value="10-16">10 a 16 anos</option>
+									<option value="17-20">17 a 20 anos</option>
+									<option value="10-16">21 a 25 anos</option>
+									<option value="10-16">26 a 30 anos</option>
+									<option value="10-16">31 a 34 anos</option>
+									<option value="10-16">35 a 40 anos</option>
+									<option value="10-16">41 a 50 anos</option>
+								</select>
+							</div>
+							<div class="content-ipt d-flex">
+								<label class="label-column unselectable"><strong>Acompanhamento do PN:</strong></label>
+								<div class="area-ipt-radio d-flex">
+									<label class="checkbox-label unselectable">
+										<input type="radio" id="pnYes" value="pnYes" name="followUpPN" class="custom-control-input" />
+										Sim
+									</label>
+									<label class="checkbox-label unselectable">
+										<input type="radio" id="pnNo" value="pnNo" name="followUpPN" class="custom-control-input" />
+										Não
+									</label>
+								</div>
+							</div>
+							<div class="content-ipt d-flex">
+								<label class="label-column unselectable"><strong>Realização de exames:</strong></label>
+								<div class="area-ipt-radio d-flex">
+									<label class="checkbox-label unselectable">
+										<input type="radio" id="examsYes" value="pnYes" name="realizationExams" class="custom-control-input" />
+										Sim
+									</label>
+									<label class="checkbox-label unselectable">
+										<input type="radio" id="examsNo" value="pnNo" name="realizationExams" class="custom-control-input" />
+										Não
+									</label>
+								</div>
+							</div>
+							<div class="content-ipt">
+								<button class="btn btn-success">Salvar</button>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="p-3 mt-2">
+					<div class="d-flex flex-column">
+						<label class="form-label"><strong>Plano de monitoramento</strong></label>
+						<textarea cols="3" class="form-text ipt-global w-100 h-100 border-1"></textarea>
+					</div>
+				</section>
+			</section>
+		</section>
+	}
+	else
+	{
+		@*Section Puérpera*@
+		<section class="border-1 p-3 mt-4">
+			<div class="nav-container m-3">
+				<header class="title-table">
+					<h3 class="unselectable">Puérpera</h3>
+				</header>
+			</div>
+
+			<div class="text-center container">
+				<button class="btn btn-info w-75" onclick="showComponent()">Dados paciente</button>
+			</div>
+
+			<div class="container">
+				<fieldset class="form-group m-4">
+					<div class="row align-items-center">
+						<div class="col-sm d-inline-flex">
+							<legend class="col-form-label pt-0 w-15"><strong>Tipo de parto:</strong></legend>
+							<div class="form-check-inline form-switch">
+								<input class="form-check-input" type="radio" name="typeChildbirth" id="vaginal" value="vaginal">
+								<label class="form-check-label" for="vaginal">Vaginal</label>
+							</div>
+							<div class="form-check-inline form-switch">
+								<input class="form-check-input" type="radio" name="typeChildbirth" id="cesarean" value="cesarean">
+								<label class="form-check-label" for="cesarean">Cesárea</label>
+							</div>
+							<div class="form-check-inline form-switch">
+								<input class="form-check-input" type="radio" name="typeChildbirth" id="forceps" value="forceps">
+								<label class="form-check-label" for="forceps">Fórceps</label>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="form-group m-4">
+					<div class="row align-items-center">
+						<div class="col-sm d-inline-flex">
+							<legend class="col-form-label pt-0"><strong>Caso crítico?</strong></legend>
+							<div class="form-check-inline col-sm form-switch">
+								<input class="form-check-input" type="radio" name="criticalCase" id="ccYes" value="ccYes">
+								<label class="form-check-label" for="ccYes">Sim</label>
+							</div>
+							<div class="form-check-inline col-sm form-switch">
+								<input class="form-check-input" type="radio" name="criticalCase" id="ccNo" value="ccNo">
+								<label class="form-check-label" for="ccNo">Não</label>
+							</div>
+						</div>
+						<div class="col-sm d-flex align-items-center">
+							<label class="label-column"><strong>Motivos</strong></label>
+							<select class="form-select m-4 mt-0 mb-0">
+								<option value="null" selected>Selecionar</option>
+								<option value="violenceDomestic">Violência Doméstica</option>
+								<option value="violenceObstetric">Violência Obstétrica</option>
+								<option value="vaginalBleeding">Sangramento Vaginal</option>
+								<option value="emotionalComplaints">Queixas emocionais</option>
+								<option value="fetalMalformation">Malformação fetal</option>
+								<option value="fetalDeath">Violência Obstétrica</option>
+								<option value="riskJudicialization">Risco de judicialização</option>
+								<option value="other">Outro</option>
+							</select>
+						</div>
+						<div class="col-sm d-flex align-items-center">
+							<label class="label-column"><strong>Alerta</strong></label>
+							<select class="form-select m-4 mt-0 mb-0">
+								<option value="null" selected>Selecionar</option>
+								<option value="vacinalSituation">Situação vacinal</option>
+								<option value="pendingExams">Pendência de exames</option>
+								<option value="respiratorySymptoms">Sintomática respiratória</option>
+								<option value="emergencyService">Passagem em serviço de urgência</option>
+								<option value="prenatalAbsenteeism">Absenteísmo em Pré-Natal</option>
+								<option value="difficultySchedulingAppointment">Dificuldade de agendamento de consulta</option>
+								<option value="difficultySchedulingUSG">Dificuldade de agendamento de USG</option>
+								<option value="terminatePregnancy">Encerrar Gestação</option>
+							</select>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+
+			<app id="appComponent" style="display: none;">
+				<component type="typeof(PatientData)" render-mode="ServerPrerendered" />
+			</app>
+		</section>
+	}
+
+	@*Section queixas*@
+	<section class="containter border-1 p-3 mt-4">
+		<div class="nav-container m-3">
+			<header class="title-table">
+				<h3 class="unselectable">Queixas</h3>
+			</header>
+		</div>
+		<div class="d-flex p-3">
+			<label class="label-column"><strong>Possui queixas:</strong></label>
+			<div class="area-ipt-radio p-4 pt-0 pb-0">
+				<label class="label-column">
+					<input type="radio" value="complaintsYes" name="complaints" />
+					Sim
+				</label>
+			</div>
+			<div class="area-ipt-radio p-4 pt-0 pb-0">
+				<label class="label-column">
+					<input type="radio" value="complaintsNo" name="complaints" />
+					Não
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<section class="col border-1 container p-3 m-3">
+				<div class="m-3">
+					<header class="sub-title-table">
+						<h5 class="unselectable">Selecionar queixas</h5>
+					</header>
+				</div>
+				<div class="container mt-3">
+					<div class="row">
+						<div class="col">
+							<div class="div-checkbox content-complaint font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complaint" />
+								<label class="unselectable">Dor Abdominal</label>
+							</div>
+							<div class="div-checkbox content-complaint font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complaint" />
+								<label class="unselectable">Dor no baixo ventre</label>
+							</div>
+							<div class="div-checkbox content-complaint font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complaint" />
+								<label class="unselectable">Sangramento viginal</label>
+							</div>
+							<div class="div-checkbox content-complaint font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complaint" />
+								<label class="unselectable">Sintomas emocionais</label>
+							</div>
+							<div class="div-checkbox content-complaint font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complaint" />
+								<label class="unselectable">Absenteísmo no PN</label>
+							</div>
+						</div>
+						<div class="col">
+							<div class="div-checkbox content-complaint font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complaint" />
+								<label class="unselectable">Náuseas</label>
+							</div>
+							<div class="div-checkbox content-complaint font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complaint" />
+								<label class="unselectable">Cicatrização</label>
+							</div>
+							<div class="div-checkbox content-complaint font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complaint" />
+								<label class="unselectable">Sintomas respiratórios</label>
+							</div>
+							<div class="div-checkbox content-complaint font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complaint" />
+								<label class="unselectable">Outros</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="col border-1 container p-3 m-3">
+				<div class="m-3">
+					<header class="sub-title-table">
+						<h5 class="unselectable">Dificuldades</h5>
+					</header>
+				</div>
+				<div class="container mt-3">
+					<div class="row">
+						<div class="col">
+							<div class="div-checkbox content-difficulty font-12px">
+								<input type="checkbox" class="form-check-input checkbox-difficulty" />
+								<label class="unselectable">Vacinas pendentes</label>
+							</div>
+							<div class="div-checkbox content-difficulty font-12px">
+								<input type="checkbox" class="form-check-input checkbox-difficulty" />
+								<label class="unselectable">Consulta RN</label>
+							</div>
+							<div class="div-checkbox content-difficulty font-12px">
+								<input type="checkbox" class="form-check-input checkbox-difficulty" />
+								<label class="unselectable">Consulta puerpério</label>
+							</div>
+							<div class="div-checkbox content-difficulty font-12px">
+								<input type="checkbox" class="form-check-input checkbox-difficulty" />
+								<label class="unselectable">Consulta PN</label>
+							</div>
+						</div>
+						<div class="col">
+							<div class="div-checkbox content-difficulty font-12px">
+								<input type="checkbox" class="form-check-input checkbox-difficulty" />
+								<label class="unselectable">Kit enxoval</label>
+							</div>
+							<div class="div-checkbox content-difficulty font-12px">
+								<input type="checkbox" class="form-check-input checkbox-difficulty" />
+								<label class="unselectable">Cartão transporte</label>
+							</div>
+							<div class="div-checkbox content-difficulty font-12px">
+								<input type="checkbox" class="form-check-input checkbox-difficulty" />
+								<label class="unselectable">Agendamento de USG</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="col border-1 container p-3 m-3">
+				<div class="m-3">
+					<header class="sub-title-table">
+						<h5 class="unselectable">Solicitações</h5>
+					</header>
+				</div>
+				<div class="container mt-3">
+					<div class="row">
+						<div class="col">
+							<div class="div-checkbox content-requests font-12px">
+								<input type="checkbox" class="form-check-input checkbox-requests" />
+								<label class="unselectable">DIU</label>
+							</div>
+							<div class="div-checkbox content-requests font-12px">
+								<input type="checkbox" class="form-check-input checkbox-requests" />
+								<label class="unselectable">Implanon</label>
+							</div>
+							<div class="div-checkbox content-requests font-12px">
+								<input type="checkbox" class="form-check-input checkbox-requests" />
+								<label class="unselectable">Mirena</label>
+							</div>
+						</div>
+						<div class="col">
+							<div class="div-checkbox content-requests font-12px">
+								<input type="checkbox" class="form-check-input checkbox-requests" />
+								<label class="unselectable">Laqueadura</label>
+							</div>
+							<div class="div-checkbox content-requests font-12px">
+								<input type="checkbox" class="form-check-input checkbox-requests" />
+								<label class="unselectable">Vasectomia</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="row">
+			<section class="col border-1 container p-3 m-3">
+				<div class="m-3">
+					<header class="sub-title-table">
+						<h5 class="unselectable">Eventos / Intercorrências / Desfechos</h5>
+					</header>
+				</div>
+				<div class="container mt-3">
+					<div class="row">
+						<div class="col">
+							<div class="div-checkbox content-complication font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complication" />
+								<label class="unselectable">Abortamento</label>
+							</div>
+							<div class="div-checkbox content-complication font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complication" />
+								<label class="unselectable">RN de Baixo Peso</label>
+							</div>
+						</div>
+						<div class="col">
+							<div class="div-checkbox content-complication font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complication" />
+								<label class="unselectable">Óbito Materno</label>
+							</div>
+							<div class="div-checkbox content-complication font-12px">
+								<input type="checkbox" class="form-check-input checkbox-complication" />
+								<label class="unselectable">Óbito Fetal</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="col border-1 container p-3 m-3">
+				<div class="m-3">
+					<header class="sub-title-table">
+						<h5 class="unselectable">Informações solicitadas</h5>
+					</header>
+				</div>
+				<div class="container mt-3">
+					<div class="row">
+						<div class="col">
+							<div class="div-checkbox content-info-request font-12px">
+								<input type="checkbox" class="form-check-input checkbox-info-request" />
+								<label class="unselectable">Benefícios sociais</label>
+							</div>
+						</div>
+						<div class="col">
+							<div class="div-checkbox content-info-request font-12px">
+								<input type="checkbox" class="form-check-input checkbox-info-request" />
+								<label class="unselectable">Creche</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</section>
+</section>
+
+<div class="modal fade" id="includeRisk" tabindex="-1" aria-labelledby="includeRiskModal" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-include-risk">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title unselectable" id="includeRiskTitle">Incluir sugestão de risco</h3>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="d-flex justify-content-between">
+					<label class="form-label"><span class="required">*</span>Riscos: </label>
+					<select name="risk" id="select-risk" class="form-select w-75">
+						<option selected value="null">Selecionar</option>
+					</select>
+				</div>
+				<div class="d-flex justify-content-between mt-4">
+					<label class="form-label"><span class="required">*</span>Motivo: </label>
+					<textarea cols="4" class="form-control w-75"></textarea>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				<button type="button" class="btn btn-success">Salvar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.getElementById("weight").oninput = (e) => {
+		let cursorPos = e.target.selectionStart
+		let formatInput = autoFormatWeight(e.target)
+		e.target.value = String(formatInput)
+		let isBackspace = (e?.data == null) ? true : false
+		let nextCusPos = nextDigit(formatInput, cursorPos, isBackspace)
+
+		document.getElementById("weight").setSelectionRange(nextCusPos + 1, nextCusPos + 1);
+	}
+
+	document.getElementById("height").oninput = (e) => {
+		let cursorPos = e.target.selectionStart
+		let formatInput = autoFormatHeight(e.target)
+		e.target.value = String(formatInput)
+		let isBackspace = (e?.data == null) ? true : false
+		let nextCusPos = nextDigit(formatInput, cursorPos, isBackspace)
+
+		document.getElementById("height").setSelectionRange(nextCusPos + 1, nextCusPos + 1);
+	}
+
+	document.getElementById("numberPregnancies").oninput = (e) => {
+		let cursorPos = e.target.selectionStart
+		let formatInput = autoFormatPregnancies(e.target)
+		e.target.value = String(formatInput)
+		let isBackspace = (e?.data == null) ? true : false
+		let nextCusPos = nextDigit(formatInput, cursorPos, isBackspace)
+
+		document.getElementById("numberPregnancies").setSelectionRange(nextCusPos + 1, nextCusPos + 1);
+	}
+
+	const checkboxRisks = document.querySelectorAll('.checkbox-risks');
+
+	checkboxRisks.forEach(checkbox => {
+		checkbox.addEventListener('change', () => {
+			const contentRiskDiv = checkbox.parentElement;
+
+			if (checkbox.checked) {
+				contentRiskDiv.classList.add('checked');
+			} else {
+				contentRiskDiv.classList.remove('checked');
+			}
+		});
+	});
+</script>

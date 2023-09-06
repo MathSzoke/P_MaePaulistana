@@ -1,0 +1,374 @@
+﻿@page "/patientData"
+@using GeoModel.Models;
+@using GeoModel.Models.Common;
+@using GeoModel.Models.MaePaulistana;
+@using MaePaulistana.Data;
+@using MaePaulistana.Models;
+@{
+	var columns = 4;
+	var rows = (int)Math.Ceiling((double)AllRiskName.Count / columns);
+}
+
+<div class="border-1 p-3">
+	<div class="m-3">
+		<header class="sub-title-table d-flex align-items-center justify-content-between">
+			<h5 class="unselectable">Dados da paciente</h5>
+			<label class="unported"><span class="required">*</span><strong>Responder somente no primeiro contato</strong></label>
+		</header>
+	</div>
+	<div class="p-4 pt-0">
+		<div class="mt-4">
+			<div class="d-flex justify-content-between">
+				<div class="content-ipt">
+					<label class="label-column unselectable"><strong>Raça / Cor:</strong></label>
+					@if (IsPregnant)
+					{
+						<div class="container-ipt-radio d-flex">
+							@foreach(var ethnicity in Ethnicities)
+							{
+								<div class="area-ipt-radio">
+									<label class="checkbox-label unselectable">
+										<input type="radio" id="@ethnicity.EtniaID" value="@ethnicity.EtniaID" name="ethnicity" class="custom-control-input" />
+										@ethnicity.DescEtnia
+									</label>
+								</div>
+							}
+						</div>
+					}
+					else
+					{
+						<input type="text" class="ipt-global" value="@Ethnicity" disabled />
+					}
+				</div>
+			</div>
+		</div>
+		<div class="mt-4">
+			<div class="d-flex justify-content-between">
+				<div class="content-ipt">
+					<label class="label-column unselectable"><strong>Faixa etária:</strong></label>
+					@if (IsPregnant)
+					{
+						<select name="attendance-place" class="form-select d-unset w-unset">
+							<option selected value="null" disabled>Selecionar</option>
+							@foreach(var age in AgeGroup)
+							{
+								<option value="@age.FaixaEtariaID">@age.DescFaixaEtaria</option>
+							}
+						</select>
+					}
+					else
+					{
+						<input type="text" class="ipt-global" value="@DescAgeGroup" disabled />
+					}
+				</div>
+				<div class="content-ipt">
+					<label class="label-column unselectable"><strong>Escolaridade:</strong></label>
+					@if (IsPregnant)
+					{
+						<select name="attendance-place" class="form-select d-unset w-unset">
+							<option selected value="null" disabled>Selecionar</option>
+							@foreach (var scho in Scholarities)
+							{
+								<option value="@scho.EscolaridadeID">@scho.DescEscolaridade</option>
+							}
+						</select>
+					}
+					else
+					{
+						<input type="text" class="ipt-global" value="@Scholarity" disabled />
+					}
+				</div>
+				<div class="content-ipt">
+					<label class="label-column unselectable"><strong>Gestações anteriores:</strong></label>
+					<input type="text" class="ipt-global" id="numberPregnancies" placeholder="Quantidade de gestações" />
+				</div>
+			</div>
+		</div>
+		<div class="mt-4">
+			<div class="d-flex justify-content-between">
+				<div class="content-ipt">
+					<label class="label-column unselectable"><strong>DUM Corrigida:</strong></label>
+					<input class="ipt-dum w-50" type="date" />
+				</div>
+				<div class="content-ipt">
+					<label class="label-column unselectable"><strong>Peso no inicio da gestação:</strong></label>
+					<input class="ipt-global w-25" id="weight" type="text" />
+				</div>
+				<div class="content-ipt">
+					<label class="label-column unselectable"><strong>Altura:</strong></label>
+					<input class="ipt-global w-50" id="height" type="text" />
+				</div>
+				@if (IsPregnant)
+				{
+					<div>
+						<button class="btn btn-success">Salvar</button>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+	<div class="d-flex mt-3">
+		<section class="container border-solid border-1 p-3 w-75">
+			<header class="sub-title-table d-flex align-items-center justify-content-between">
+				<h5 class="unselectable">Riscos do BI</h5>
+				<label class="unported"><span class="required">*</span><strong>Apenas informativo para saber o que vem do SIGA</strong></label>
+			</header>
+			<div class="container mt-3">
+				<div class="row">
+					@for (var row = 0; row < rows; row++)
+					{
+						<div class="col">
+							@for (var col = 0; col < columns; col++)
+							{
+								var index = row * columns + col;
+								string g = Guid.NewGuid().ToString("N").Substring(0, 7);
+								if (index < AllRiskName.Count)
+								{
+									<div class="div-checkbox p-0 m-0 text-nowrap content-risk @(PatientRisks.Contains(AllRiskName[index]) ? "checked" : "")">
+										<input id="@g" type="checkbox" class="form-check-input checkbox-risks" checked="@(PatientRisks.Contains(AllRiskName[index]) ? true : false)" />
+										<label class="unselectable" for="@g">@AllRiskName[index]</label>
+									</div>
+								}
+							}
+						</div>
+					}
+				</div>
+			</div>
+		</section>
+		<section class="container p-3">
+			<header class="card-subtitle d-flex small justify-content-between">
+				<h5 class="unselectable">
+					Incluir sugestões de riscos
+					<button class="btn btn-outline-success border-0" data-bs-toggle="modal" data-bs-target="#includeRisk">
+						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+							<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+						</svg>
+					</button>
+				</h5>
+				<span class="required">* Prováveis riscos considerados pela enfermeira</span>
+			</header>
+			<table>
+				<thead>
+					<tr class="d-table-row">
+						<th class="unselectable"></th>
+						<th class="unselectable">Risco</th>
+						<th class="unselectable">Data inclusão</th>
+						<th class="unselectable">Enfermeira</th>
+						<th class="unselectable">Motivo da sugestão</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var risk in RisksConsideredByNurses)
+					{
+						<tr class="d-table-row">
+							<td class="data-table font-12px">
+								<button class="btn btn-outline-danger border-0">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+										<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+										<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+									</svg>
+								</button>
+							</td>
+							<td class="data-table font-12px">
+								@risk.TipoRisco.TipoRiscoNome
+							</td>
+							<td class="data-table font-12px">
+								@risk.CriadoEm
+							</td>
+							<td class="data-table font-12px">
+								@risk.CriadoPor
+							</td>
+							<td class="data-table font-12px">
+								@risk.MotivoSugestao
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</section>
+	</div>
+	<section class="border-solid border-1 p-3 mt-4">
+		<div class="m-3">
+			<header class="sub-title-table">
+				<h5 class="unselectable">Evolução da paciente</h5>
+			</header>
+		</div>
+		@if (IsPregnant)
+		{
+			<div class="p-4 pt-0">
+				<div class="d-flex">
+					<div class="p-2">
+						<label class="unselectable"><strong>PA máxima:</strong></label>
+						<input type="number" class="ipt-global w-25 no-spinners" maxlength="3" minlenght="3" placeholder="xxx" />
+					</div>
+					<div class="p-2">
+						<label class="unselectable"><strong>PA mínima:</strong></label>
+						<input type="number" class="ipt-global w-25 no-spinners" maxlength="3" minlenght="2" placeholder="xx" />
+					</div>
+					<div class="p-2">
+						<label class="unselectable"><strong>Peso:</strong></label>
+						<input type="number" class="ipt-global w-25 no-spinners" maxlength="3" minlenght="2" placeholder="xx" />
+						<span>Kg</span>
+					</div>
+					<div class="p-2">
+						<label class="unselectable"><strong>Altura:</strong></label>
+						<input type="number" class="ipt-global w-25 no-spinners" maxlength="3" minlenght="2" placeholder="xxx" />
+						<span>cm</span>
+					</div>
+				</div>
+				<div class="d-flex">
+					<div class="p-2">
+						<label class="unselectable"><strong>Glicemia:</strong></label>
+						<input type="number" class="ipt-global w-25 no-spinners" maxlength="3" minlenght="3" placeholder="xxx" />
+					</div>
+					<div class="p-2">
+						<label class="unselectable"><strong>Saturação O²:</strong></label>
+						<input type="number" class="ipt-global w-25 no-spinners" maxlength="3" minlenght="2" placeholder="xx" />
+					</div>
+					<div class="p-2">
+						<label class="unselectable"><strong>Medicamentos:</strong></label>
+						<input type="text" class="ipt-global" placeholder="Xxxxxxxxxxx, Xxxxxxxxxxx" />
+					</div>
+					<div>
+						<button class="btn btn-success">Salvar</button>
+					</div>
+				</div>
+			</div>
+		}
+		<table>
+			<caption class="header-tables"><h5 class="unselectable p-2 m-0">Histórico - Evolução da paciente</h5></caption>
+			<thead>
+				<tr>
+					<th class="unselectable">Data</th>
+					<th class="unselectable">I.G. Entrevista</th>
+					<th class="unselectable">PA max</th>
+					<th class="unselectable">PA min</th>
+					<th class="unselectable">Peso</th>
+					<th class="unselectable">Altura</th>
+					<th class="unselectable">IMC</th>
+					<th class="unselectable">Glicemia</th>
+					<th class="unselectable">Saturação</th>
+					<th class="unselectable">Medicamentos</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var evolution in HistoricEvolutionPatient)
+				{
+					<tr class="d-table-row">
+						<td class="data-table font-12px">
+							@evolution.DataEvolucao
+						</td>
+						<td class="data-table font-12px">
+							@evolution.IGEntrevista
+						</td>
+						<td class="data-table font-12px">
+							@evolution.PAMax
+						</td>
+						<td class="data-table font-12px">
+							@evolution.PAMin
+						</td>
+						<td class="data-table font-12px">
+							@evolution.PesoPaciente
+						</td>
+						<td class="data-table font-12px">
+							@evolution.AlturaPaciente
+						</td>
+						<td class="data-table font-12px">
+							@evolution.IMCPaciente
+						</td>
+						<td class="data-table font-12px">
+							@evolution.GlicemiaPaciente
+						</td>
+						<td class="data-table font-12px">
+							@evolution.SaturacaoPaciente
+						</td>
+						<td class="data-table font-12px">
+							@evolution.Medicamentos
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</section>
+</div>
+
+@code
+{
+	protected int IDPatient = DataManager.GetPatientID();
+
+	public bool IsPregnant { get; set; }
+
+	public string? DescAgeGroup { get; set; }
+
+	public string? Ethnicity { get; set; }
+
+	public string? Scholarity { get; set; }
+
+	public string? ScholarityID { get; set; }
+
+	public List<string>? AllRiskName { get; set; }
+
+	public List<string>? PatientRisks { get; set; }
+
+	public List<PacienteRiscos>? RisksConsideredByNurses { get; set; }
+
+	public List<PacienteEscolaridade>? Scholarities { get; set; }
+
+	public List<TipoFaixaEtaria>? AgeGroup { get; set; }
+
+	public List<TipoEtnia>? Ethnicities { get; set; }
+
+	public List<PatientEvolutionVO>? HistoricEvolutionPatient { get; set; } = new()
+	 {
+	 	new PatientEvolutionVO
+	 	{
+	 		DataEvolucao = DateTime.Parse("2023-03-29"),
+	 		IGEntrevista = 16,
+	 		PAMax = 120,
+	 		PAMin = 80,
+	 		PesoPaciente = 76,
+	 		AlturaPaciente = 165,
+	 		IMCPaciente = "20,00 - Eutrófico",
+	 		GlicemiaPaciente = 130,
+	 		SaturacaoPaciente = 98,
+	 		Medicamentos = "Metildopa"
+	 	},
+	 	new PatientEvolutionVO
+	 	{
+	 		DataEvolucao = DateTime.Parse("2023-01-22"),
+	 		IGEntrevista = 07,
+	 		PAMax = 100,
+	 		PAMin = 74,
+	 		PesoPaciente = 84,
+	 		AlturaPaciente = 171,
+	 		IMCPaciente = "20,00 - Eutrófico",
+	 		GlicemiaPaciente = 130,
+	 		SaturacaoPaciente = 98,
+	 		Medicamentos = "Dipirona"
+	 	}
+	 };
+
+	protected override async Task OnInitializedAsync()
+	{
+		using var db = new GeoSaudeDBContext();
+
+		AllRiskName = db.Common_TipoRiscoSet.Select(x => x.TipoRiscoNome).ToList();
+
+		var rid = db.MaePaulistana_PacienteRiscosSet.Where(x => x.PacienteID.Equals(IDPatient)).Select(x => x.RiscoID).FirstOrDefault();
+		PatientRisks = db.MaePaulistana_PacienteRiscosSet.Where(x => x.PacienteID.Equals(IDPatient) && x.RiscoID.Equals(rid)).Select(x => x.TipoRisco.TipoRiscoNome).ToList();
+
+		var eid = db.Common_PacienteSet.Where(x => x.PacienteID.Equals(IDPatient)).Select(x => x.TipoEtniaID).FirstOrDefault();
+		Ethnicity = db.Common_TipoEtniaSet.Where(x => x.EtniaID.Equals(eid)).Select(x => x.DescEtnia).FirstOrDefault();
+
+		var feid = db.MaePaulistana_MonitoramentoDaGestanteSet.Where(x => x.PacienteID.Equals(IDPatient)).Select(x => x.FaixaEtariaID).FirstOrDefault();
+		DescAgeGroup = db.MaePaulistana_MonitoramentoDaGestanteSet.Where(x => x.PacienteID.Equals(IDPatient) && x.FaixaEtariaID.Equals(feid)).Select(x => x.TipoFaixaEtaria.DescFaixaEtaria).FirstOrDefault();
+
+		Scholarities = db.Common_PacienteEscolaridadeSet.ToList();
+		AgeGroup = db.Common_TipoFaixaEtariaSet.ToList();
+		Ethnicities = db.Common_TipoEtniaSet.ToList();
+		RisksConsideredByNurses = db.MaePaulistana_PacienteRiscosSet.ToList();
+
+		await base.OnInitializedAsync();
+	}
+}
